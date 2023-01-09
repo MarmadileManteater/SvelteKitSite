@@ -1,0 +1,92 @@
+/**
+ * WHAT IS THIS FILE?
+ *
+ * Globally applied styles. No matter which components are in the page or matching route,
+ * the styles in here will be applied to the Document, without any sort of CSS scoping.
+ *
+ */
+
+ :root {
+  --qwik-dark-blue: #006ce9;
+  --qwik-light-blue: #18b6f6;
+  --qwik-light-purple: #ac7ff4;
+  --qwik-dark-purple: #713fc2;
+}
+
+body {
+  background-image: url(images/stars.png);
+  background-attachment: fixed;
+  background-size: 320px;
+  /* Firefox */
+  image-rendering: crisp-edges;
+  /* Chromium + Safari */
+  image-rendering: pixelated;
+}
+
+body img, body span {
+  image-rendering: initial;
+}
+
+.drink-coffee-sign {
+  width: 120px;
+  image-rendering: pixelated;
+  position: absolute;
+  right: 0;
+  bottom: -14px;
+}
+
+.drink-coffee-sign-2 {
+  width: 128px;
+  image-rendering: pixelated;
+  position: absolute;
+  right: 0;
+  bottom: -14px;
+}
+
+@media(prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+
+pre > div {
+  margin-bottom: -30px;
+  background-color: black;
+  color: white;
+  padding: 15px 10px;
+  white-space: break-spaces;
+  word-wrap: break-word;
+}
+
+.emoji {
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+}
+
+.emoji > img {
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+  top: -3px;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+img + img.filter {
+  /* hide filters in reader view
+  (stylesheets are not processed in reader view, so the inline style is none) */
+  display: block !important;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
