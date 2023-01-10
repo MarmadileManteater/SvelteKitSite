@@ -19,9 +19,10 @@
       tagData={tagData}
       index={startIndex + i}
     >
-      {#each contentItem.buttons as button}
+      {#each contentItem.buttons as button, k}
         <ProjectButton
           {...button}
+          index={k}
         >{button.prefix} <strong>{button.locationName}</strong></ProjectButton>
       {/each}
     </ContentCard>
