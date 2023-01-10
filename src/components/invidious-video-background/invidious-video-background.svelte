@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte"
   import Emoji from "../emoji/emoji.svelte"
-  
+
   export let videoId: string
-  export let server: string = 'http://192.168.1.208:8081'
+  export let server: string = 'https://invidious.namazso.eu'
   export let itag: string = '22'
   $: videoUrl = `${server}/latest_version?id=${videoId}&itag=${itag}&local=true`
   $: invidiousUrl = `${server}/watch?v=${videoId}`
