@@ -6,6 +6,8 @@
  *
  */
 
+ @import url('../node_modules/highlight.js/styles/vs2015.css');
+
  :root {
   --qwik-dark-blue: #006ce9;
   --qwik-light-blue: #18b6f6;
