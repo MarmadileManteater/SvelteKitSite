@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [development]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout 
+        uses: actions/checkout@master
+        with:
+          persist-credentials: false
+          
+      - name: Reclone the data submodule to get the proper history
+        run: |
+          #hacky af, but submodules in gh don't retrieve history correctly
+          rm data -rf
+          git clone https://github.com/MarmadileManteater/gh-pages-site-data.git data
+
+      - name: 🧶 Yarn 
+        run: yarn
+
+      - name: 👷‍♀️Build @marmadilemanteater/gh-static-site-lib
+        run: |
+          cd node_modules/@marmadilemanteater/gh-static-site-lib
+          yarn build
+
+      - name: 📰 Output RSS feed
+        run: |
+          npx ts-node ./src/scripts/write-xml-feed.ts
+
+      - name: 🧳 Package SQLite3 db
+        run: |
+          npx ts-node ./src/scripts/build-sqlite3-db-from-dataservice.ts
+          cp ./sqllite3.db ./build
+
+      - name: 🏞Set the environment
+        run: |
+          npx ts-node .\src\scripts\set-environment.ts PROD
+
+      - name: 🏗️ Build
+        run: |
+          yarn build
+          
+      - name: 📦 Publish artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MarmadileManteaterQwik
+          path: build/
+
