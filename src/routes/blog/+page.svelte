@@ -3,7 +3,7 @@
   import Emoji from "../../components/emoji/emoji.svelte"
   import type { PageData } from "./$types"
   export let data : PageData
-  import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog";
+  import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
   let tagData = data.props.tagData
   let pageCount = data.props.pageCount
   $: posts = data.props.blogPosts as IBlogPost[]

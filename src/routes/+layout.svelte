@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
   import '../global.css'
   import Header from '../components/header/header.svelte'
   import Footer from '../components/footer/footer.svelte'
   import InvidiousVideoBackground from '../components/invidious-video-background/invidious-video-background.svelte'
 </script>
-
-
+<svelte:head>
+  <link rel="icon" href="/favicon.ico" />
+</svelte:head>
 <div class='flex flex-col' style='min-height: 100vh;'>
   <div class='wrapper' style='flex:1;display: flex;flex-direction: column; position: relative;'>
     <InvidiousVideoBackground videoId='XvtpXPbbiVA' itag='136' />
