@@ -1,6 +1,6 @@
 
 import blogPosts from '@marmadilemanteater/gh-static-site-lib/dist/dataservice/blog-posts'
-import tagData from '../../data/tags.json'
+import tagData from '../../data/tags.json' assert { type: "json" }
 import sqlite3 from "sqlite3"
 const { getAllBlogPostsSorted } = blogPosts
 type Database = sqlite3.Database
