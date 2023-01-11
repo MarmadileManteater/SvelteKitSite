@@ -18,16 +18,20 @@ export function getBlogPostById(postId: string) : Promise<IBlogPost> {
           if (err) {
             return reject(err)
           }
-          const post =  {
-            id: row.id,
-            title: row.title,
-            html: row.html,
-            shortDescription: row.short_description,
-            gittime: row.git_time,
-            tags: tags.filter(({id}) => id === row.id).map(({name}) => name),
-            type: 'IBlogPost'
-          } as IBlogPost
-          resolve(post)
+          if (row) {
+            const post =  {
+              id: row.id,
+              title: row.title,
+              html: row.html,
+              shortDescription: row.short_description,
+              gittime: row.git_time,
+              tags: tags.map(({name}) => name),
+              type: 'IBlogPost'
+            } as IBlogPost
+            resolve(post)
+          } else {
+            resolve(undefined)
+          }
         })
       })
     })
