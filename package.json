@@ -32,7 +32,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@marmadilemanteater/gh-static-site-lib": "file:../gh-static-site-lib",
+    "@marmadilemanteater/gh-static-site-lib": "https://github.com/MarmadileManteater/gh-static-site-lib.git",
     "highlight.js": "^11.7.0",
     "sqlite3": "^5.1.4"
   },
