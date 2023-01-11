@@ -36,16 +36,19 @@ jobs:
       - name: 🧳 Package SQLite3 db
         run: |
           npx ts-node ./src/scripts/build-sqlite3-db-from-dataservice.ts
-          cp ./sqllite3.db ./build
 
       - name: 🏞Set the environment
         run: |
-          npx ts-node .\src\scripts\set-environment.ts PROD
+          npx ts-node ./src/scripts/set-environment.ts PROD
 
       - name: 🏗️ Build
         run: |
           yarn build
           
+      - name: 🚛 Move db into build files
+        run: |
+          cp ./sqllite3.db ./build
+
       - name: 📦 Publish artifact
         uses: actions/upload-artifact@v3
         with:
