@@ -6,4 +6,4 @@ try {
   mkdirSync('./data/public/blog')
 } catch (_) {_}
 
-writeFileSync('./data/public/blog/rss.xml', getBlogRSSFeed(getAllBlogPostsSorted()))
+writeFileSync('./data/public/blog/rss.xml', getBlogRSSFeed(getAllBlogPostsSorted(), 'https://marmadilemanteater.dev/blog/'))
