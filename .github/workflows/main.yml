@@ -53,6 +53,10 @@ jobs:
         run: |
           cp ./sqllite3.db ./build
 
+      - name: 🚚 Move node_modules into build files
+        run: |
+          cp -r node_modules ./build
+
       - name: 🤐 Zip up build directory for 🏎faster uploads
         uses: montudor/action-zip@v1
         with:
