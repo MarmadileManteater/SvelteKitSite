@@ -24,10 +24,14 @@ jobs:
       - name: 🧶 Yarn 
         run: yarn
 
-      - name: 👷‍♀️Build @marmadilemanteater/gh-static-site-lib
+      - name: 👷‍♀️ Build @marmadilemanteater/gh-static-site-lib
         run: |
           cd node_modules/@marmadilemanteater/gh-static-site-lib
           yarn build
+
+      - name: 📄 Copy data/public to static
+        run: |
+          cp -r data/public static
 
       - name: 📰 Output RSS feed
         run: |
@@ -37,7 +41,7 @@ jobs:
         run: |
           npx ts-node ./src/scripts/build-sqlite3-db-from-dataservice.ts
 
-      - name: 🏞Set the environment
+      - name: 🏞 Set the environment
         run: |
           npx ts-node ./src/scripts/set-environment.ts PROD
 
@@ -52,6 +56,6 @@ jobs:
       - name: 📦 Publish artifact
         uses: actions/upload-artifact@v3
         with:
-          name: MarmadileManteaterQwik
+          name: MarmadileManteaterSvelte
           path: build/
 
