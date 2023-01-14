@@ -2,6 +2,7 @@
   import UnifiedContentList from "../../../../components/unified-content-list/unified-content-list.svelte"
   import type { PageData } from "./$types"
   import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
+  import NotFound from "../../../../components/not-found/not-found.svelte"
   export let data : PageData
   let tagData, pageCount, pageNum
   // Without this, client side routing on this url param just doesn't work right
@@ -21,18 +22,25 @@
 <div class='project-list' style='overflow:hidden;'>
   <div class='md:rounded-t-xl'>
     <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t' style='overflow:hidden;'>
-      <UnifiedContentList {...{ tagData, content: posts, startIndex: 1 }} />
-      <a href={previousPage} class='p-5 inline-block hover:underline'>Previous Page &raquo;</a>
-      {#each Array.from({ length: Math.ceil(pageCount) }, (_, i) => i).splice(pageNum - 2 > 0?pageNum - 2:0, 3) as page}
-        {#if page === pageNum}
-          <strong class='text-xl p-5'>{page + 1}</strong>
+      {#if pageNum < Math.floor(pageCount)}
+        <UnifiedContentList {...{ tagData, content: posts, startIndex: 1 }} />
+        <a href={previousPage} class='p-5 inline-block hover:underline'>Previous Page &raquo;</a>
+        {#each Array.from({ length: Math.ceil(pageCount) }, (_, i) => i).splice(pageNum - 2 > 0?pageNum - 2:0, 3) as page}
+          {#if page === pageNum}
+            <strong class='text-xl p-5'>{page + 1}</strong>
+          {/if}
+          {#if page !== pageNum}
+            <a href={page > 0?`/blog/page/${page}/`:'/blog/'} class='p-5 hover:underline' >{page + 1}</a>
+          {/if}
+        {/each}
+        {#if pageCount > pageNum + 1}
+          <a href={`/blog/page/${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
         {/if}
-        {#if page !== pageNum}
-          <a href={page > 0?`/blog/page/${page}/`:'/blog/'} class='p-5 hover:underline' >{page + 1}</a>
-        {/if}
-      {/each}
-      {#if pageCount > pageNum + 1}
-        <a href={`/blog/page/${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
+      {/if}
+      {#if pageNum >= Math.floor(pageCount) }
+        <div class='p-6 pb-2'>
+          <NotFound/>
+        </div>
       {/if}
     </div>
   </div>
