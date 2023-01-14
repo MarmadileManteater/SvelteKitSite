@@ -12,11 +12,20 @@ export async function load(params : any) {
     // Access sqlite3 db in production because it will be better than making exec calls every request
     getBlogPostById = prodDataservice.getBlogPostById
   }
-  const blogPost = await getBlogPostById(postId)
-  return {
-    props: {
-      tagData,
-      blogPost
+  try {
+    const blogPost = await getBlogPostById(postId)
+    return {
+      props: {
+        tagData,
+        blogPost
+      }
+    }
+  } catch {
+    return {
+      props: {
+        tagData,
+        blogPost: null
+      }
     }
   }
 }

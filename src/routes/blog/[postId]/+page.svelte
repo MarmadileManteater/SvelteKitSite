@@ -3,21 +3,38 @@
   import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
   import TagList from "../../../components/tag-list/tag-list.svelte"
   import { convertEmojiToImages } from "@marmadilemanteater/gh-static-site-lib/src/helpers/emoji"
-
+  import NotFound from "../../../components/not-found/not-found.svelte"
   export let data : PageData
   let post = data.props.blogPost as IBlogPost
   let tagData = data.props.tagData
+  // Without this, client side routing on this url param just doesn't work right
+  // See https://github.com/sveltejs/kit/issues/1449#issuecomment-842433085
+  $: data,  (()=>{
+    // and here you do the update (its like watch in vuejs)
+    post = data.props.blogPost as IBlogPost
+    if (typeof document !== 'undefined') {
+      document.title = `${post.title}`
+    }
+  })()
 </script>
 <div class='bg-white border-t dark:bg-zinc-900 rounded-t-xl lg:border border-solid border-black'>
   <div class='p-6 pb-2'>
-    {#if post != null}
-    <h2 class='text-4xl pb-2'>{@html convertEmojiToImages(post.title)}</h2>
-    <TagList {...{tags: post.tags, tagData }} />
-    <p class='pb-2 text-zinc-500 dark:text-zinc-400'><em>Last updated {new Date(post.gittime).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZone: 'GMT' })} GMT</em></p>
-    <div>{@html convertEmojiToImages(post.html)}</div>
+    {#if post !== null}
+      <h2 class='text-4xl pb-2'>{@html convertEmojiToImages(post.title)}</h2>
+      <TagList {...{tags: post.tags, tagData }} />
+      <p class='pb-2 text-zinc-500 dark:text-zinc-400'><em>Last updated {new Date(post.gittime).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZone: 'GMT' })} GMT</em></p>
+      <div>{@html convertEmojiToImages(post.html)}</div>
+    {/if}
+    {#if post === null}
+      <NotFound/>
     {/if}
   </div>
 </div>
 <svelte:head>
-  <title>{post.title}</title>
+  {#if post !== null}
+    <title>{post.title}</title>
+  {/if}
+  {#if post === null}
+    <title>Not found</title>
+  {/if}
 </svelte:head>

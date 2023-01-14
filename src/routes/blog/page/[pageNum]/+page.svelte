@@ -1,16 +1,22 @@
 <script lang="ts">
   import UnifiedContentList from "../../../../components/unified-content-list/unified-content-list.svelte"
-  import Emoji from "../../../../components/emoji/emoji.svelte"
   import type { PageData } from "./$types"
+  import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
   export let data : PageData
-  import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog";
-  let tagData = data.props.tagData
-  let pageCount = data.props.pageCount + 1
-  let pageNum = data.props.pageNum
+  let tagData, pageCount, pageNum
+  // Without this, client side routing on this url param just doesn't work right
+  // See https://github.com/sveltejs/kit/issues/1449#issuecomment-842433085
+  $: data,  (()=>{
+    // and here you do the update (its like watch in vuejs)
+    tagData = data.props.tagData
+    pageCount = data.props.pageCount + 1
+    pageNum = data.props.pageNum
+    if (typeof document !== 'undefined') {
+      document.title = `Blog`
+    }
+  })()
+  $: previousPage = pageNum > 1?`/blog/page/${pageNum - 1}/`:'/blog/'
   $: posts = data.props.blogPosts as IBlogPost[]
-  let previousPage = pageNum > 1?`/blog/${pageNum - 1}/`:'/blog/'
-  console.log(pageCount)
-  console.log(pageNum)
 </script>
 <div class='project-list' style='overflow:hidden;'>
   <div class='md:rounded-t-xl'>
@@ -22,11 +28,11 @@
           <strong class='text-xl p-5'>{page + 1}</strong>
         {/if}
         {#if page !== pageNum}
-          <a href={page > 0?`../${page}/`:'../../'} class='p-5 hover:underline' >{page + 1}</a>
+          <a href={page > 0?`/blog/page/${page}/`:'/blog/'} class='p-5 hover:underline' >{page + 1}</a>
         {/if}
       {/each}
       {#if pageCount > pageNum + 1}
-        <a href={`../${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
+        <a href={`/blog/page/${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
       {/if}
     </div>
   </div>
