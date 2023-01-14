@@ -12,7 +12,7 @@
   <div class='md:rounded-t-xl'>
     <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t'>
       <a download='my-blog.xml' href='/blog/rss.xml' class='hover:underline p-2 block'><Emoji emoji='📰' /> rss</a>
-      <UnifiedContentList {...{ tagData, content: posts, startIndex: posts.length % 2 === 0?1:0  }} />
+      <UnifiedContentList {...{ tagData, content: posts, startIndex: 0  }} />
       {#if pageCount > 1}
         <a href='/blog/page/1' class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
       {/if}

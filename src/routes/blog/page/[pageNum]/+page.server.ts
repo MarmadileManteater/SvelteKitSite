@@ -20,10 +20,7 @@ export async function load({params} : any) {
   const allPosts = await getAllBlogPostsSorted()
   const pageCount = allPosts.length / PAGE_SIZE
   const posts = allPosts.splice(PAGE_SIZE * pageNum, PAGE_SIZE)
-  console.log(pageCount)
-  console.log(allPosts.length)
-  console.log(pageNum < Math.floor(pageCount))
-  if (pageNum > Math.floor(pageCount))
+  if (pageNum >= pageCount)
     throw error(404, 'Not found')
   return {
     props: {

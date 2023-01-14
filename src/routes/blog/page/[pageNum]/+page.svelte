@@ -2,7 +2,6 @@
   import UnifiedContentList from "../../../../components/unified-content-list/unified-content-list.svelte"
   import type { PageData } from "./$types"
   import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
-  import NotFound from "../../../../components/not-found/not-found.svelte"
   export let data : PageData
   let tagData, pageCount, pageNum
   // Without this, client side routing on this url param just doesn't work right
@@ -16,7 +15,7 @@
       document.title = `Blog`
     }
   })()
-  $: previousPage = pageNum > 1?`/blog/page/${pageNum - 1}/`:'/blog/'
+  $: previousPage = pageNum > 0?`/blog/page/${pageNum - 1}/`:'/blog/'
   $: posts = data.props.blogPosts as IBlogPost[]
 </script>
 <div class='project-list' style='overflow:hidden;'>
@@ -29,11 +28,12 @@
           {#if page === pageNum}
             <strong class='text-xl p-5'>{page + 1}</strong>
           {/if}
-          {#if page !== pageNum}
+          <!-- hacky af, but prevents links to 404s -->
+          {#if page !== pageNum && page + 1 < pageCount}
             <a href={page > 0?`/blog/page/${page}/`:'/blog/'} class='p-5 hover:underline' >{page + 1}</a>
           {/if}
         {/each}
-        {#if Math.floor(pageCount) > pageNum + 1}
+        {#if pageNum >= pageCount}
           <a href={`/blog/page/${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
         {/if}
       {/if}
