@@ -3,6 +3,7 @@ import tagData from '../../../../data/tags.json'
 import * as devDataservice from '@marmadilemanteater/gh-static-site-lib/src/dataservice/blog-posts'
 import * as prodDataservice from '../../../dataservice/blog-posts'
 import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
+import { error } from '@sveltejs/kit'
 export async function load(params : any) {
   const postId = params.params.postId as string
   let getBlogPostById : (postId: string) => Promise<IBlogPost> = async (postId : string) => {
@@ -21,11 +22,6 @@ export async function load(params : any) {
       }
     }
   } catch {
-    return {
-      props: {
-        tagData,
-        blogPost: null
-      }
-    }
+    throw error(404, 'Not found')
   }
 }

@@ -12,7 +12,7 @@
   $: data,  (()=>{
     // and here you do the update (its like watch in vuejs)
     post = data.props.blogPost as IBlogPost
-    if (typeof document !== 'undefined') {
+    if (typeof document !== 'undefined' && post) {
       document.title = `${post.title}`
     }
   })()
@@ -25,16 +25,10 @@
       <p class='pb-2 text-zinc-500 dark:text-zinc-400'><em>Last updated {new Date(post.gittime).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZone: 'GMT' })} GMT</em></p>
       <div>{@html convertEmojiToImages(post.html)}</div>
     {/if}
-    {#if post === null}
-      <NotFound/>
-    {/if}
   </div>
 </div>
 <svelte:head>
   {#if post !== null}
     <title>{post.title}</title>
-  {/if}
-  {#if post === null}
-    <title>Not found</title>
   {/if}
 </svelte:head>

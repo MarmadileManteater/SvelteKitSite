@@ -13,12 +13,14 @@ export async function load() {
     // Access sqlite3 db in production because it will be better than making exec calls every request
     getAllBlogPostsSorted = prodDataservice.getAllBlogPostsSorted
   }
-  const blogPosts = await getAllBlogPostsSorted()
+  const allPosts = await getAllBlogPostsSorted()
+  const pageCount = allPosts.length / PAGE_SIZE
+  const posts = allPosts.splice(PAGE_SIZE * 0, PAGE_SIZE)
   return {
     props: {
       tagData,
-      blogPosts: blogPosts,
-      pageCount: blogPosts.length / PAGE_SIZE
+      blogPosts: posts,
+      pageCount
     }
   }
 }

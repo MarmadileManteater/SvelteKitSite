@@ -23,9 +23,9 @@
   <div class='md:rounded-t-xl'>
     <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t' style='overflow:hidden;'>
       {#if pageNum < Math.floor(pageCount)}
-        <UnifiedContentList {...{ tagData, content: posts, startIndex: 1 }} />
+        <UnifiedContentList {...{ tagData, content: posts, startIndex: posts.length % 2 === 0?1:0 }} />
         <a href={previousPage} class='p-5 inline-block hover:underline'>Previous Page &raquo;</a>
-        {#each Array.from({ length: Math.ceil(pageCount) }, (_, i) => i).splice(pageNum - 2 > 0?pageNum - 2:0, 3) as page}
+        {#each Array.from({ length: Math.floor(pageCount) }, (_, i) => i).splice(pageNum - 2 > 0?pageNum - 2:0, 3) as page}
           {#if page === pageNum}
             <strong class='text-xl p-5'>{page + 1}</strong>
           {/if}
@@ -33,14 +33,9 @@
             <a href={page > 0?`/blog/page/${page}/`:'/blog/'} class='p-5 hover:underline' >{page + 1}</a>
           {/if}
         {/each}
-        {#if pageCount > pageNum + 1}
+        {#if Math.floor(pageCount) > pageNum + 1}
           <a href={`/blog/page/${pageNum + 1}/`} class='p-5 inline-block hover:underline'>Next Page &raquo;</a>
         {/if}
-      {/if}
-      {#if pageNum >= Math.floor(pageCount) }
-        <div class='p-6 pb-2'>
-          <NotFound/>
-        </div>
       {/if}
     </div>
   </div>
