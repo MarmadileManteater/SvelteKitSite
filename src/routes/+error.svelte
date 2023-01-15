@@ -17,7 +17,7 @@
   }
 </script>
 
-<div class='bg-white dark:bg-zinc-900 md:rounded-t-xl md:border md:border-solid md:border-black p-6 pb-2'>
+<div class='bg-white dark:bg-zinc-900 rounded-t-xl border-t lg:border border-solid border-black p-6 pb-2'>
   <h2 class='font-bold text-4xl pb-4'><Emoji emoji={emoji} /> {$page.status} - {$page.error.message}</h2>
   {#if message}
     <p class='pb-4 text-lg' >

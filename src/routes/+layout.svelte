@@ -3,6 +3,8 @@
   import Header from '../components/header/header.svelte'
   import Footer from '../components/footer/footer.svelte'
   import InvidiousVideoBackground from '../components/invidious-video-background/invidious-video-background.svelte'
+
+  export const prerender = true
 </script>
 <svelte:head>
   <link rel="icon" href="/favicon.ico" />

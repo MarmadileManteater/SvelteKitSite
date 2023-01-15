@@ -6,7 +6,7 @@
   let tagData = data.props.tagData
   $: projects = data.props.projectData as IProject[]
 </script>
-<div class='bg-white dark:bg-zinc-900 rounded-t-xl md:border md:border-solid md:border-black'>
+<div class='bg-white dark:bg-zinc-900 rounded-t-xl border-t lg:border border-solid border-black'>
   <ProjectList projects={projects} tagData={tagData} />
 </div>
 <svelte:head>
