@@ -18,9 +18,9 @@
   $: previousPage = pageNum > 0?`/blog/page/${pageNum - 1}/`:'/blog/'
   $: posts = data.props.blogPosts as IBlogPost[]
 </script>
-<div class='project-list' style='overflow:hidden;'>
+<div class='project-list overflow-hidden' >
   <div class='md:rounded-t-xl'>
-    <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t' style='overflow:hidden;'>
+    <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t overflow-hidden' >
       {#if pageNum < Math.floor(pageCount)}
         <UnifiedContentList {...{ tagData, content: posts, startIndex: posts.length % 2 === 0?1:0 }} />
         <a href={previousPage} class='p-5 inline-block hover:underline'>Previous Page &raquo;</a>

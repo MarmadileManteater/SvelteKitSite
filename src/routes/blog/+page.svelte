@@ -8,7 +8,7 @@
   let pageCount = data.props.pageCount
   $: posts = data.props.blogPosts as IBlogPost[]
 </script>
-<div class='project-list' style='overflow:hidden;'>
+<div class='project-list overflow-hidden' >
   <div class='md:rounded-t-xl'>
     <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t'>
       <a download='my-blog.xml' href='/blog/rss.xml' class='hover:underline p-2 block'><Emoji emoji='📰' /> rss</a>

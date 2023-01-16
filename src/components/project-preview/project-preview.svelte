@@ -4,7 +4,7 @@
   export let projects : IProject[]
   export let tagData : ITag[]
 </script>
-<div class='project-list rounded-t-xl' style='overflow:hidden;'>
+<div class='project-list rounded-t-xl overflow-hidden' >
   <UnifiedContentList {...{ content: projects, tagData: tagData, startIndex: 1 }} ></UnifiedContentList>
   <a href='./projects' class='p-5 inline-block hover:underline'>View more &raquo;</a>
 </div>
