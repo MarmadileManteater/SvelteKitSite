@@ -11,4 +11,6 @@
 </div>
 <svelte:head>
   <title>Projects</title>
+  <meta name='author' content='Emma (MarmadileManteater)' />
+  <meta name='description' content='my projects; 🤷‍♀️i guess' />
 </svelte:head>

@@ -27,4 +27,6 @@
 </div>
 <svelte:head>
   <title>{$page.status} - {$page.error.message}</title>
+  <meta name='author' content='Emma (MarmadileManteater)' />
+  <meta name='description' content="Hello! I'm MarmadileManteater. My real name is Emma, and you can look it up. This is actually an error page!" />
 </svelte:head>

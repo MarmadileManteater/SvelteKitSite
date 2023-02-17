@@ -29,5 +29,7 @@
 <svelte:head>
   {#if post !== null && post !== undefined}
     <title>{post.title}</title>
+    <meta name='author' content='Emma (MarmadileManteater)' />
+    <meta name='description' content={post.shortDescription} />
   {/if}
 </svelte:head>

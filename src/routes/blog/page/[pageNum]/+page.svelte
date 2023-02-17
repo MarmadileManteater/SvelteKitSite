@@ -42,4 +42,6 @@
 </div>
 <svelte:head>
   <title>Blog</title>
+  <meta name='author' content='Emma (MarmadileManteater)' />
+  <meta name='description' content='my blog; 🤷‍♀️i guess' />
 </svelte:head>
