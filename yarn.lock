@@ -199,8 +199,9 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@marmadilemanteater/gh-static-site-lib@file:../gh-static-site-lib":
+"@marmadilemanteater/gh-static-site-lib@https://github.com/MarmadileManteater/gh-static-site-lib.git":
   version "1.0.0"
+  resolved "https://github.com/MarmadileManteater/gh-static-site-lib.git#f80bb9ca6cfe5561c9032be41c19c013a42ee57c"
   dependencies:
     "@types/node" "^18.11.18"
     "@xmldom/xmldom" "^0.8.6"
