@@ -3,7 +3,7 @@
   import Emoji from "../emoji/emoji.svelte"
 
   export let videoId: string
-  export let server: string = 'https://invidious.namazso.eu'
+  export let server: string = 'https://invidious.sethforprivacy.com'
   export let itag: string = '22'
   $: videoUrl = `${server}/latest_version?id=${videoId}&itag=${itag}&local=true`
   $: invidiousUrl = `${server}/watch?v=${videoId}`
@@ -11,7 +11,7 @@
   let dataActive = false
   const invidiousInstanceList = [
     'https://invidious.sethforprivacy.com',
-    'https://invidious.namazso.eu',
+    'https://vid.puffyan.us',
     'https://yt.artemislena.eu'
   ]
   onMount(() => {
