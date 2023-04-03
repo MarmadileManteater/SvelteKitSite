@@ -3,7 +3,7 @@
   import type { PageData } from "./$types"
   import ProjectPreview from "../components/project-preview/project-preview.svelte"
   import type { IProject } from "@marmadilemanteater/gh-static-site-lib/src/models/project"
-  import portrait from '../images/portrait.png'
+  import portrait from '../images/portrait.jpg'
   import demon2 from '../images/sign-2.png'
   export let data : PageData
   let tagData = data.props.tagData

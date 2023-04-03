@@ -10,7 +10,7 @@
   export let tagData : ITag[]
   export let index : number
 </script>
-<div class={`content-card md:pt-0 ${thumbnail?'pt-4':'pt-0'} outer-grid ${index % 2 === 0?'bg-zinc-100':'bg-white'} ${index % 2 === 0?'dark:bg-zinc-800':'dark:bg-zinc-900'} dark:text-white`}>
+<div class={`content-card md:pt-0 ${thumbnail?'pt-4':'pt-0'} outer-grid ${index % 2 === 0?'bg-zinc-100':''} ${index % 2 === 0?'dark:bg-zinc-800':''} dark:text-white`}>
   {#if thumbnail}
     <div class='p-4 pr-0 image-grid'>
       <a href={titleLink}><img src={thumbnail} alt={title} style='max-height: 153px; max-width: 182px; display: inline-block;' /></a>
