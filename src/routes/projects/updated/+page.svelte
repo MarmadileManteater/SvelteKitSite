@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ProjectList from "../../components/project-list/project-list.svelte"
+  import ProjectList from "../../../components/project-list/project-list.svelte"
   import type { PageData } from "./$types"
   export let data : PageData
   import type { IProject } from "@marmadilemanteater/gh-static-site-lib/src/models/project"
@@ -7,9 +7,9 @@
   $: projects = data.props.projectData as IProject[]
 </script>
 <div class='bg-white dark:bg-zinc-900 rounded-t-xl border-t lg:border border-solid border-black'>
-  <ProjectList clientSideSorting={false} projects={projects} tagData={tagData}>
-    <span class={'decoration-solid underline select-none p-4 inline-block'} >Sort by featured</span>
-    <a class={'cursor-pointer select-none p-4 inline-block'} href='/projects/updated'>Sort by last updated</a>
+  <ProjectList sortType="lastUpdate" clientSideSorting={false} projects={projects} tagData={tagData}>
+    <a class={'cursor-pointer select-none p-4 inline-block'} href='/projects'>Sort by featured</a>
+    <span class={'decoration-solid underline cursor-default select-none p-4 inline-block'} >Sort by last updated</span>
   </ProjectList>
 </div>
 <svelte:head>
