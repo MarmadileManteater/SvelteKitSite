@@ -60,10 +60,12 @@
     }
   })
 </script>
-<video bind:this={video} loop muted src={videoUrl} data-active={dataActive} >
-  <slot/>
-</video>
-<a rel='noreferrer' target='_blank' href={invidiousUrl} class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3' >Watch this video on <span class='icon link' ><Emoji emoji="🔗" /></span><span class='icon'><Emoji emoji="📺" /></span>Invidious</a>
+<div class='flex justify-center fixed top-0 left-0 w-screen h-screen'>
+  <video bind:this={video} loop muted src={videoUrl} data-active={dataActive} >
+    <slot/>
+  </video>
+  <a rel='noreferrer' target='_blank' href={invidiousUrl} class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3' >Watch this video on <span class='icon link' ><Emoji emoji="🔗" /></span><span class='icon'><Emoji emoji="📺" /></span>Invidious</a>
+</div>
 <style>
 a, video {
   position: fixed;
@@ -121,7 +123,6 @@ video {
   margin-left: -50%;
   min-width: 100%;
   height: 100vh;
-  max-width: initial;
 }
 
 video[data-active="true"], video[data-active="true"] + a {
