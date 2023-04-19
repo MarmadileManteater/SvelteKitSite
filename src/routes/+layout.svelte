@@ -6,8 +6,7 @@
   import GodotSceneBackground from '../components/godot-scene-background/godot-scene-background.svelte'
   import Emoji from '../components/emoji/emoji.svelte'
   let loadGodot = false
-  let enableGodot = (e) => {
-    console.log(e)
+  let enableGodot = () => {
     loadGodot = true
   }
 </script>
