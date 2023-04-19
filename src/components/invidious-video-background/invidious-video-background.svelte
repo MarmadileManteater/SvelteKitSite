@@ -60,13 +60,14 @@
     }
   })
 </script>
-<div class='flex justify-center fixed top-0 left-0 w-screen h-screen'>
-  <video bind:this={video} loop muted src={videoUrl} data-active={dataActive} >
+<div class='flex justify-center fixed top-0 left-0 w-screen h-screen' data-active={dataActive}>
+  <video bind:this={video} loop muted src={videoUrl} >
     <slot/>
   </video>
-  <a rel='noreferrer' target='_blank' href={invidiousUrl} class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3' >Watch this video on <span class='icon link' ><Emoji emoji="🔗" /></span><span class='icon'><Emoji emoji="📺" /></span>Invidious</a>
 </div>
+<a rel='noreferrer' target='_blank' href={invidiousUrl} class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3' >Watch this video on <span class='icon link' ><Emoji emoji="🔗" /></span><span class='icon'><Emoji emoji="📺" /></span>Invidious</a>
 <style>
+
 a, video {
   position: fixed;
   opacity: 0;
@@ -74,7 +75,7 @@ a, video {
   font-size: 0;
 }
 
-video[data-active="true"] + a {
+div[data-active="true"] + a {
   top: 0px;
   left: 0px;
   right: auto;
@@ -88,18 +89,18 @@ video[data-active="true"] + a {
   font-size: 1em;
 }
 
-video[data-active="true"] + a span.link { 
+div[data-active="true"] + a span.link { 
   display: none;
 }
 
 @media (max-width: 1500px) {
-  video[data-active="true"] + a {
+  div[data-active="true"] + a {
     position: absolute;
   }
 }
 
 @media (max-width: 1368px) {
-  video[data-active="true"] + a {
+  div[data-active="true"] + a {
     top: 0px;
     left: 0px;
     right: auto;
@@ -108,10 +109,10 @@ video[data-active="true"] + a span.link {
     padding: 3px;
     font-size: 0;
   }
-  video[data-active="true"] + a .icon {
+  div[data-active="true"] + a .icon {
     font-size: initial;
   }
-  video[data-active="true"] + a span.link { 
+  div[data-active="true"] + a span.link { 
     display: inline;
   }
 }
@@ -125,7 +126,7 @@ video {
   height: 100vh;
 }
 
-video[data-active="true"], video[data-active="true"] + a {
+div[data-active="true"] video, div[data-active="true"] + a {
   opacity: 1;
 }
 
@@ -144,5 +145,4 @@ video[data-active="true"], video[data-active="true"] + a {
     height: auto;
   }
 }
-
 </style>
