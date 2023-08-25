@@ -2,7 +2,6 @@
   import '../global.css'
   import Header from '../components/header/header.svelte'
   import Footer from '../components/footer/footer.svelte'
-  import InvidiousVideoBackground from '../components/invidious-video-background/invidious-video-background.svelte'
   import GodotSceneBackground from '../components/godot-scene-background/godot-scene-background.svelte'
   import Emoji from '../components/emoji/emoji.svelte'
   let loadGodot = false
@@ -17,10 +16,9 @@
   <GodotSceneBackground sceneUrl='/godot_background/index.html' />
 {/if}
 {#if !loadGodot}
-  <InvidiousVideoBackground videoId='1t54WpT-aus' itag='134' />
   <span class='text-white absolute top-2 right-5 z-10 hover:underline cursor-pointer hidden lg:inline' on:click={enableGodot} on:keydown={enableGodot}>Load <Emoji emoji='🤖' />Godot background scene in browser</span>
 {/if}
-<div class='flex flex-col min-h-screen' data-semi-transparent='true' >
+<div class='flex flex-col min-h-screen' data-semi-transparent={loadGodot?'true':'false'} >
   <div class='wrapper flex-1 flex flex-col relative' >
     <Header />
     <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>
