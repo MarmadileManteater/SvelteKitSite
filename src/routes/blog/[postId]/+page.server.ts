@@ -4,6 +4,11 @@ import * as devDataservice from '@marmadilemanteater/gh-static-site-lib/src/data
 import * as prodDataservice from '../../../dataservice/blog-posts'
 import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
 import { error } from '@sveltejs/kit'
+
+export const entries = (() => {
+  return devDataservice.getAllBlogPostIds().map(postId => { return { postId: postId.toString() } })
+});
+
 export async function load(params : any) {
   const postId = params.params.postId as string
   let getBlogPostById : (postId: string) => Promise<IBlogPost> = async (postId : string) => {

@@ -6,6 +6,12 @@ import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/model
 import { error } from '@sveltejs/kit'
 const PAGE_SIZE = 5
 
+export const entries = (() => {
+  return [...Array(Math.floor((devDataservice.getAllBlogPostIds().length / PAGE_SIZE) + 1)).keys()].map(pageNum => {
+    return { pageNum: pageNum.toString() }
+  })
+});
+
 export async function load({params} : any) {
   const pageNum = parseInt(params.pageNum)
   if (isNaN(pageNum))

@@ -1,6 +1,6 @@
 {
   "name": "sveltekitsite",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -8,13 +8,14 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "clean": "rimraf ./node_modules/.vite"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^1.0.0",
     "@sveltejs/adapter-node": "^1.1.0",
-    "@sveltejs/adapter-static": "^1.0.0-next.50",
-    "@sveltejs/kit": "^1.0.0",
+    "@sveltejs/adapter-static": "^2.0.3",
+    "@sveltejs/kit": "^1.5.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -22,7 +23,7 @@
     "eslint": "^8.28.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "postcss": "^8.4.21",
-    "svelte": "^3.54.0",
+    "svelte": "^3.58.0",
     "svelte-check": "^2.9.2",
     "tailwindcss": "^3.2.4",
     "ts-node": "^10.9.1",
