@@ -2,6 +2,7 @@
   import type { ITag } from '@marmadilemanteater/gh-static-site-lib/src/models/project'
   import { convertEmojiToImages } from '@marmadilemanteater/gh-static-site-lib/src/helpers/emoji'
   import TagList from '../tag-list/tag-list.svelte'
+
   export let title : string
   export let titleLink : string = ''
   export let summary : string = ''
@@ -9,11 +10,12 @@
   export let tags : string[]
   export let tagData : ITag[]
   export let index : number
+  
 </script>
 <div class={`content-card md:pt-0 ${thumbnail?'pt-4':'pt-0'} outer-grid ${index % 2 === 0?'bg-zinc-100':''} ${index % 2 === 0?'dark:bg-zinc-800':''} dark:text-white`}>
   {#if thumbnail}
     <div class='p-4 pr-0 image-grid'>
-      <a href={titleLink}><img src={thumbnail} alt={title} style='max-height: 153px; max-width: 182px; display: inline-block;' /></a>
+      <a href={titleLink}><img src={`/thumbnails/${title.replace("?", "").replace("!", "")}.webp`} alt={title} style='max-height: 153px; max-width: 182px; display: inline-block;' /></a>
     </div> 
   {/if}
   <div class='p-4 pl-4'>

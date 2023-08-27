@@ -1,9 +1,18 @@
 import { sveltekit } from '@sveltejs/kit/vite'
+import { imagetools } from 'vite-imagetools'
 import type { UserConfig } from 'vite'
 import { readdirSync } from 'fs'
 import packageJSON from './package.json'
+
 const config: UserConfig = {
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), imagetools({
+    defaultDirectives: (url) => {
+      if (url.href.endsWith(".jpg")) {
+        return new URLSearchParams({ format: 'webp' })
+      }
+      return new URLSearchParams({ })
+    }
+  })],
   define: {
     emojiDirectory: {
       mutantstd: Array.from(readdirSync('data/public/emoji/mutantstd')),

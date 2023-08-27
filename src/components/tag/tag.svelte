@@ -1,14 +1,23 @@
 <script lang="ts">
+  // import our logos through esmodule import bc they can be optimized through vite-imagetools that way
+  // @ts-ignore
+  import csharp from '../../images/csharp-logo.png?format=webp&w=40&h=40'
+  // @ts-ignore
+  import js from '../../images/js-logo.png?format=webp&w=40&h=40'
+  // @ts-ignore
+  import python from '../../images/python-logo.png?format=webp&w=40&h=48'
+  import rust from '../../images/rust-logo-blk.svg'
+
   export let name : string
   export let link : string
   $: spanClass = [name, 'align-top', 'hover:underline', 'p-2', 'bg-zinc-200', 'dark:bg-zinc-700', 'dark:text-white', 'rounded-xl', 'mr-3','mb-2','mt-2', 'inline-block'].join(' ')
 </script>
-<a rel="noreferrer" href={link} target='_blank' >
+<a rel="noreferrer" href={link} target='_blank' style="--csharp: url({csharp}); --js: url({js}); --python: url({python}); --rust: url({rust})">
   <span class={spanClass}>{name}</span>
 </a>
 <style>
 .csharp {
-  background-image: url('../../images/csharp-logo.png');
+  background-image: var(--csharp);
   background-color: transparent;
   background-size: 40px;
   background-repeat: no-repeat;
@@ -20,7 +29,7 @@
 }
 
 .javascript {
-  background-image: url('../../images/js-logo.png');
+  background-image: var(--js);
   background-color: transparent;
   background-size: 40px;
   background-repeat: no-repeat;
@@ -33,7 +42,7 @@
 }
 
 .python {
-  background-image: url('../../images/python-logo.png');
+  background-image: var(--python);
   background-color: transparent;
   background-size: 40px;
   background-repeat: no-repeat;
@@ -45,7 +54,7 @@
   border-radius: 0;
 }
 .rust {
-  background-image: url('https://raw.githubusercontent.com/rust-lang/rust-artwork/bf0b3272f9ba8d22f7fd45e408496d05621b3b5c/logo/rust-logo-blk.svg');
+  background-image: var(--rust);
   background-color: transparent;
   background-size: 40px;
   background-repeat: no-repeat;

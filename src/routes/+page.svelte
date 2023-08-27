@@ -1,11 +1,15 @@
 <script lang="ts">
-  import Emoji from "../components/emoji/emoji.svelte"
   import type { PageData } from "./$types"
-  import ProjectPreview from "../components/project-preview/project-preview.svelte"
   import type { IProject } from "@marmadilemanteater/gh-static-site-lib/src/models/project"
-  import portrait from '../images/portrait.jpg'
+  
+  import Emoji from "../components/emoji/emoji.svelte"
+  import ProjectPreview from "../components/project-preview/project-preview.svelte"
+  // @ts-ignore
+  import portrait from '../images/portrait.jpg?w=142&h=190'
   import demon2 from '../images/sign-2.png'
+
   export let data : PageData
+
   let tagData = data.props.tagData
   $: projects = data.props.projectData as IProject[]
 
@@ -14,7 +18,7 @@
 <div class='md:flex justify-center relative' >
   <div class='flex bg-white dark:bg-zinc-900 rounded-t-xl md:rounded-xl md:mb-3 p-5 mr-3 md:w-1/2 w-full border-t md:border border-solid border-black'>
     <div class='sm:flex m-auto'>
-      <img src={portrait} alt='me' class='self-center w-1/4 mr-auto ml-auto mt-1 mb-4 sm:mb-0 sm:mr-4 sm:w-20 md:w-32 sm:mt-0'  />
+      <img src={portrait} alt='me' width='142' height='190' class='self-center w-1/4 mr-auto ml-auto mt-1 mb-4 sm:mb-0 sm:mr-4 sm:w-20 md:w-32 sm:mt-0'  />
       <div>
         <p class='text-xl md:text-base lg:mb-4'>Hello! I'm MarmadileManteater. My real name is Emma, and you can look it up. That's an actual picture of me!</p>
         <p class='text-xl md:text-base md:mt-2 mt-3'><a href='https://matrix.to/#/@marmadilemanteater:matrix.org' class='inline-block hover:underline text-blue-600 dark:text-red-300 pr-3 text-lg' target='_blank' rel='noreferrer'><Emoji emoji='💬' /> Message me</a> <span class='sm:visible sm:inline md:invisible md:block md:h-1 lg:visible lg:inline'>|</span> <a href='mailto:marmadilemanteater@proton.me' class='inline-block hover:underline text-blue-600 dark:text-red-300 pl-3 md:pl-0 lg:pl-3 text-lg'><Emoji emoji='📬' /> Email me</a></p>
