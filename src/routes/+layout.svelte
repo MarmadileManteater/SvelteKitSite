@@ -20,7 +20,7 @@
 {/if}
 <div class='flex flex-col min-h-screen' data-semi-transparent={loadGodot?'true':'false'} >
   <div class='wrapper flex-1 flex flex-col relative' >
-    <Header />
+    <Header loadedGodot={loadGodot} />
     <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>
       <section class='flex-1 flex flex-col relative' >
         <slot />
