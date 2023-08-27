@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { IProject, ITag } from "@marmadilemanteater/gh-static-site-lib/src/models/project";
   import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
-    import ContentCard from "../content-card/content-card.svelte";
-    import ProjectButton from "../project-button/project-button.svelte";
+  import ContentCard from "../content-card/content-card.svelte";
+  import ProjectButton from "../project-button/project-button.svelte";
 
   export let content : Array<IBlogPost|IProject>
   export let tagData : Array<ITag>
