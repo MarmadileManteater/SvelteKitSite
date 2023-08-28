@@ -1,3 +1,6 @@
 [submodule "data"]
 	path = data
 	url = https://github.com/MarmadileManteater/gh-pages-site-data.git
+[submodule "MySocialFeed"]
+	path = social
+	url = https://github.com/MarmadileManteater/MySocialFeed.git
