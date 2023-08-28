@@ -45,15 +45,6 @@ jobs:
       - name: 🧶 Yarn 
         run: yarn
 
-      - name: 👷‍♀️ Build @marmadilemanteater/gh-static-site-lib
-        run: |
-          cd node_modules/@marmadilemanteater/gh-static-site-lib
-          yarn build
-
-      - name: 📰 Output RSS feed
-        run: |
-          npx ts-node ./src/scripts/write-xml-feed.ts
-
       - name: 📄 Copy data/public to static
         run: |
           cp -r data/public static
