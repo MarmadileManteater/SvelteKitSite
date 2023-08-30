@@ -22,6 +22,8 @@ jobs:
           #hacky af, but submodules in gh don't retrieve history correctly
           rm data -rf
           git clone https://github.com/MarmadileManteater/gh-pages-site-data.git data
+          rm social -rf
+          git clone https://github.com/MarmadileManteater/MySocialFeed.git social
 
       - name: 🧹 Make a directory for the background scene
         run: |
