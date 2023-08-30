@@ -45,9 +45,15 @@ jobs:
       - name: 🧶 Yarn 
         run: yarn
 
-      - name: 📄 Copy data/public to static
+      - name: 📄 Copy data/public && social/media to static
         run: |
           cp -r data/public static
+          cp -r social/media static/media
+
+      - name: 🏗️ Build
+        run: |
+          yarn build
+          mv build static-adapter
 
       - name: 🧳 Package SQLite3 db
         run: |
@@ -73,11 +79,21 @@ jobs:
       - name: 🤐 Zip up build directory for 🏎faster uploads
         uses: montudor/action-zip@v1
         with:
-          args: zip -r build.zip ./build
+          args: zip -r node-adadpter.zip ./build
+
+      - name: 🤐 Zip up build directory for 🏎faster uploads
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -r static-adapter.zip ./static-adapter
 
       - name: 📦 Publish artifact
         uses: actions/upload-artifact@v3
         with:
           name: MarmadileManteaterSvelte
-          path: build.zip
+          path: node-adapter.zip
 
+      - name: 📦 Publish artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MarmadileManteaterSvelteStatic
+          path: static-adapter.zip
