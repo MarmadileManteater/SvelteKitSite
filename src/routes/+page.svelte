@@ -44,7 +44,7 @@
   <ProjectPreview projects={projects} tagData={tagData} />
 </div>
 
-<div class="lg:hidden p-5 mt-10 bg-zinc-100 dark:bg-zinc-800 font-bold flex justify-between">
+<div class="lg:rounded-xl lg:ml-6 lg:mr-6 lg:mt-5 p-5 mt-10 bg-zinc-100 dark:bg-zinc-800 font-bold flex justify-between">
   <div><Emoji emoji="💬" /> my social feed:</div> <a  class="hover:underline">rss <Emoji emoji="📰" /></a>
 </div>
 

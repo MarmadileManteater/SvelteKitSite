@@ -55,6 +55,7 @@
           </span>
         {/if}
       </span>
+      <em class="italic p-4 pt-2 pb-0 mb-[-10px] text-zinc-500 dark:text-zinc-400">{post.date}</em>
       {#if showTitle}
         <span class="font-bold p-4 pb-0 mb-[-10px]">
           {@html convertEmojiToImages(post.title)}
@@ -73,6 +74,7 @@
         <a class="bg-zinc-100 dark:bg-zinc-800 p-4 md:text-base text-md block hover:underline text-blue-600 dark:text-red-300" href={post.originalUrl}>
           <Emoji emoji="🔗" /> Permalink
         </a>
+
       </div>
     </div>
   </div>
