@@ -39,5 +39,6 @@
     "vite-imagetools": "^5.0.8"
   },
   "environment": "DEV",
-  "adapter": "static"
+  "adapter": "static",
+  "domain": ""
 }

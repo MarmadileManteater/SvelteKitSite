@@ -47,10 +47,20 @@ jobs:
       - name: 🧶 Yarn 
         run: yarn
 
+      - name: 🪒 Optimize social images
+        run: |
+          cd social/
+          yarn
+          node smallrify.js
+
       - name: 📄 Copy data/public && social/media to static
         run: |
           cp -r data/public static
           cp -r social/media static/media
+
+      - name: 🏞 Set the environment
+        run: |
+          npx ts-node ./src/scripts/set-website-url.ts https://marmadilemanteater.dev
 
       - name: 🏗️ Build
         run: |
