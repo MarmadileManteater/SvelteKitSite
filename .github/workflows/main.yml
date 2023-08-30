@@ -47,6 +47,11 @@ jobs:
       - name: 🧶 Yarn 
         run: yarn
 
+      - name: 👷‍♀️ Build @marmadilemanteater/gh-static-site-lib
+        run: |
+          cd node_modules/@marmadilemanteater/gh-static-site-lib
+          yarn build
+
       - name: 🪒 Optimize social images
         run: |
           cd social/
