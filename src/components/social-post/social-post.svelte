@@ -69,9 +69,9 @@
           <a class="hover:underline hidden lg:inline show-more text-white" href={post.originalUrl}>Show more &raquo;</a>
         </div>
       {/if}
-      <MediaGallery medias={post.media} />
+      <MediaGallery {descriptionText} medias={post.media} />
       <div class="flex-1 flex flex-col justify-end">
-        <a class="bg-zinc-100 dark:bg-zinc-800 p-4 md:text-base text-md block hover:underline text-blue-600 dark:text-red-300" href={post.originalUrl}>
+        <a class="bg-zinc-100 dark:bg-zinc-800 p-4 pt-3 pb-2 text-md block hover:underline text-blue-600 dark:text-red-300 text-xs" href={post.originalUrl}>
           <Emoji emoji="🔗" /> Permalink
         </a>
 

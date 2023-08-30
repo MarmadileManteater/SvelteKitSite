@@ -41,13 +41,52 @@
 }
 
 body {
-  background-image: url(images/stars.png);
+  background-color: black;
+  background-image: url(images/sno-who-knows.png);
   background-attachment: fixed;
-  background-size: 320px;
+  background-size: 820px;
   /* Firefox */
   image-rendering: crisp-edges;
   /* Chromium + Safari */
   image-rendering: pixelated;
+  animation: animatedBackground 15s linear infinite;
+}
+
+body::before {
+  content: ' ';
+  background-image: url(images/sno-who-knows.png);
+  background-size: 410px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  animation: animatedBackground 23s linear infinite;
+}
+
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 5px 410px;
+  }
+  100% {
+    background-position: 0px 820px;
+  }
+}
+
+@keyframes animatedBackground2 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -10px 205px;
+  }
+  100% {
+    background-position: 0px 410px;
+  }
 }
 
 body img, body span {

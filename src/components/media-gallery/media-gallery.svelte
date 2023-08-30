@@ -2,6 +2,7 @@
   import type { IMedia } from "@marmadilemanteater/gh-static-site-lib/src/models/social-posts"
 
   export let medias: IMedia[] = []
+  export let descriptionText: string = ""
   const removeGhAssetsLinks = (image) => {
     image.url = image.url?.replace("https://raw.githubusercontent.com/MarmadileManteater/MySocialFeed/development", "");
     return image;
@@ -14,7 +15,7 @@
     {#if image.url !== undefined}
       <div class="overflow-hidden" data-image="{i + 1}" style={`grid-area: image${i + 1};`}>
         <a target="_blank" href={image.url} rel="noreferrer" >
-          <img width="300" src={`${image.url}.webp`} alt={image.alt} title={image.alt} class="object-cover w-100" />
+          <img width="300" src={`${image.url}.webp`} alt={image.alt?image.alt:descriptionText} title={image.alt?image.alt:descriptionText} class="object-cover w-[100%]" />
         </a>
       </div>
     {/if}
