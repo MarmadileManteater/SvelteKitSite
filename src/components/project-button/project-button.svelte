@@ -5,7 +5,6 @@
 </script>
 <a
   href={link}
-  target={target}
   rel="noreferrer"
   class={`p-3 inline-block hover:underline dark:bg-zinc-700 ${index % 2 === 0?'bg-blue-600':'bg-blue-900'}  text-white dark:bg-zinc-600 rounded-lg mr-5 mb-3`}
 ><slot /> &raquo;</a>

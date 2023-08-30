@@ -62,7 +62,7 @@
         </span>
       {/if}
       <span class="p-4 {truncateContent?"overflow-hidden lg:max-h-[200px]":""}" >
-        {@html convertEmojiToImages(post.description.replace("https://raw.githubusercontent.com/MarmadileManteater/MySocialFeed/development", ""))}
+        {@html convertEmojiToImages(post.description.replaceAll("https://raw.githubusercontent.com/MarmadileManteater/MySocialFeed/development", "").replaceAll("href=\"/", `href=\"${platformUrl}/`))}
       </span>
       {#if truncateContent}
         <div class="z-10 linear-gradient-black-to-alpha mt-[-100px] leading-[160px] h-[100px] text-center relative hidden lg:block">

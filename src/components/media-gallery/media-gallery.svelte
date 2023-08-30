@@ -14,7 +14,7 @@
   {#each images as image, i}
     {#if image.url !== undefined}
       <div class="overflow-hidden" data-image="{i + 1}" style={`grid-area: image${i + 1};`}>
-        <a target="_blank" href={image.url} rel="noreferrer" >
+        <a href={image.url} rel="noreferrer" >
           <img width="300" src={`${image.url}.webp`} alt={image.alt?image.alt:descriptionText} title={image.alt?image.alt:descriptionText} class="object-cover w-[100%]" />
         </a>
       </div>

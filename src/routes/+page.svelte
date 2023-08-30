@@ -45,7 +45,7 @@
 </div>
 
 <div class="lg:rounded-xl lg:ml-6 lg:mr-6 lg:mt-5 p-5 mt-10 bg-zinc-100 dark:bg-zinc-800 font-bold flex justify-between">
-  <div><a href="/feed" class="hover:underline"><Emoji emoji="💬" /> my social feed:</a></div> <a href="/feed/feed.xml" class="hover:underline">rss <Emoji emoji="📰" /></a>
+  <div><a href="/feed" class="hover:underline"><Emoji emoji="💬" /> my social feed &raquo;</a></div> <a href="/feed/feed.xml" class="hover:underline" download="socials.xml">rss <Emoji emoji="📰" /></a>
 </div>
 
 <div class="lg:mt-5">
