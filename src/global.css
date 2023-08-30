@@ -117,3 +117,48 @@ img + img.filter {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* 
+  these global styles need to be global because sveltekit does not include "unused styles"
+  and these classes appear inside of dynamically imported HTML from an rss feed.
+*/
+.post img[rel="emoji"] {
+  @apply inline;
+}
+.post a:not(.show-more) {
+  @apply text-blue-600;
+}
+.post a:not(.show-more):not([rel="tag"]) {
+  @apply break-all;
+}
+.post a:hover {
+  @apply underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post a:not(.show-more) {
+    @apply text-red-300;
+  }
+}
+
+/* 
+  this has to do with the grid layout with social posts 
+*/
+[data-image="3"] {
+  @apply flex justify-center bg-black;
+}
+
+@media(min-width: 1024px) {
+  [data-image]:last-child:not([data-image="2"]) {
+    @apply max-h-[200px];
+  }
+}
+
+[data-image] img {
+  @apply h-[100%];
+}
+
+[data-image]:last-child:not([data-image="2"]) img {
+  @apply h-auto;
+}

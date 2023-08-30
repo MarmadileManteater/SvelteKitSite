@@ -4,6 +4,7 @@
   import Emoji from "../emoji/emoji.svelte"
   import MediaGallery from "../media-gallery/media-gallery.svelte"
   export let post: ISocialPost = null
+
   $: handle = post.handle.indexOf(" on ") === -1?post.handle:post.handle.split(" on ")[0]
   $: postfixHandle = post.handle.indexOf(" on ") === -1?"":post.handle.split(" on ")[1]
   // remove my subdomains
@@ -18,6 +19,8 @@
   $: descriptionText = post.description.replace(/<\/*?[^>]*?>/g, "")
   $: showTitle = !post.title.endsWith("...") && !descriptionText.startsWith(post.title)
   $: truncateContent = descriptionText.length > 250 && post.media[0].url !== undefined || platformUrl.startsWith("https://opengameart.org");
+
+
 </script>
 
 {#if post !== null}
@@ -53,55 +56,30 @@
         {/if}
       </span>
       {#if showTitle}
-        <span class="font-bold p-4">
+        <span class="font-bold p-4 pb-0 mb-[-10px]">
           {@html convertEmojiToImages(post.title)}
         </span>
       {/if}
-      <span class="pt-4 pb-4 pl-4 pr-4 {truncateContent?"shorten":""}" >
+      <span class="p-4 {truncateContent?"overflow-hidden lg:max-h-[200px]":""}" >
         {@html convertEmojiToImages(post.description.replace("https://raw.githubusercontent.com/MarmadileManteater/MySocialFeed/development", ""))}
       </span>
       {#if truncateContent}
-        <div style="background: linear-gradient(#ffffff00, #000000ff); height: 100px; position: relative; margin-top: -100px; line-height: 160px; text-align:center;" class="show-more">
-          <a class="hover:underline show-more text-white" href={post.originalUrl}>Show more &raquo;</a>
+        <div class="z-10 linear-gradient-black-to-alpha mt-[-100px] leading-[160px] h-[100px] text-center relative hidden lg:block">
+          <a class="hover:underline hidden lg:inline show-more text-white" href={post.originalUrl}>Show more &raquo;</a>
         </div>
       {/if}
       <MediaGallery medias={post.media} />
       <div class="flex-1 flex flex-col justify-end">
-        <a class="bg-zinc-100 dark:bg-zinc-800 p-4 md:text-base text-xl block hover:underline text-blue-600 dark:text-red-300" href={post.originalUrl}>
-          🔗 Permalink
+        <a class="bg-zinc-100 dark:bg-zinc-800 p-4 md:text-base text-md block hover:underline text-blue-600 dark:text-red-300" href={post.originalUrl}>
+          <Emoji emoji="🔗" /> Permalink
         </a>
       </div>
     </div>
   </div>
 {/if}
 
-<style >
-  :global(.post img[rel="emoji"]) {
-    display: inline;
-  }
-  :global(.post a:not(.show-more)) {
-    color: rgb(37 99 235);
-    cursor: pointer;
-    word-wrap: anywhere;
-  }
-  :global(.post a:hover) {
-    text-decoration: underline;
-  }
-  @media (prefers-color-scheme: dark) {
-    :global(.post a:not(.show-more)) {
-      color: rgb(252 165 165);
-    }
-  }
-  :global(.shorten) {
-    max-height: 200px;
-    overflow: hidden;
-  }
-  @media (max-width: 768px) {
-    :global(.shorten) {
-      max-height: 100000px;
-    }
-    .show-more {
-    display: none;
-  }
+<style scoped>
+  .linear-gradient-black-to-alpha {
+    background: linear-gradient(#ffffff00, #000000ff);
   }
 </style>

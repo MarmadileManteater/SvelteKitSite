@@ -4,7 +4,7 @@
 
   export let socialPosts: ISocialPost[] = [];
 </script>
-<div class="flex flex-wrap justify-center gap-[25px]">
+<div class="flex flex-wrap justify-center lg:gap-[25px]">
   {#each socialPosts as post, i}
     <div class="social-post flex lg:basis-[300px] basis-full">
       <SocialPost {post} />
