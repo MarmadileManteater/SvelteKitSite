@@ -1,18 +1,20 @@
 <script lang="ts">
   import type { PageData } from "./$types"
   import type { IProject } from "@marmadilemanteater/gh-static-site-lib/src/models/project"
+  import type { ISocialPost } from "@marmadilemanteater/gh-static-site-lib/src/models/social-posts"
   
   import Emoji from "../components/emoji/emoji.svelte"
   import ProjectPreview from "../components/project-preview/project-preview.svelte"
   // @ts-ignore
   import portrait from '../images/portrait.jpg?w=142&h=190'
   import demon2 from '../images/sign-2.png'
+  import SocialPosts from "../components/social-posts/social-posts.svelte"
 
   export let data : PageData
-
+  
   let tagData = data.props.tagData
   $: projects = data.props.projectData as IProject[]
-
+  let socialPosts = data.props.postData as ISocialPost[]
 </script>
 
 <div class='md:flex justify-center relative' >
@@ -37,8 +39,17 @@
   </div>
   <img src={demon2} alt="demon holding sign in enochian; the sign translates to 'drinc coffee hail satan'" class='drink-coffee-sign-2' />
 </div>
+
 <div class='bg-white dark:bg-zinc-900 md:rounded-t-xl md:border md:border-solid md:border-black'>
   <ProjectPreview projects={projects} tagData={tagData} />
+</div>
+
+<div class="lg:hidden p-5 mt-10 bg-zinc-100 dark:bg-zinc-800 font-bold flex justify-between">
+  <div><Emoji emoji="💬" /> my social feed:</div> <a  class="hover:underline">rss <Emoji emoji="📰" /></a>
+</div>
+
+<div class="lg:mt-5">
+  <SocialPosts {socialPosts} />
 </div>
 
 <svelte:head>
