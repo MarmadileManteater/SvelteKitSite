@@ -71,6 +71,8 @@ jobs:
         run: |
           yarn build
           mv build static-adapter
+          mv static-adapter/not-found/index.html static-adapter/404.html
+          rm static-adapter/not-found
 
       - name: 🧳 Package SQLite3 db
         run: |
