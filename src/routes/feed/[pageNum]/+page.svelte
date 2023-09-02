@@ -18,7 +18,7 @@
 </div>
 
 <svelte:head>
-  <title>MarmadileManteater</title>
+  <title>Social Feed</title>
   <meta name='author' content='Emma (MarmadileManteater)' />
   <meta name='description' content="Hello! I'm MarmadileManteater. My real name is Emma, and you can look it up. This is actually my social feed!" />
 </svelte:head>
