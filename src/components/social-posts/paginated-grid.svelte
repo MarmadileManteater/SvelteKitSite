@@ -6,6 +6,7 @@
   import profilepic from "../../images/02152bebd8e818f982e39fb74e92ff4b.png?format=webp&w=100&h=100"
   // @ts-ignore
   import stars from "../../images/preview3_22.png?format=webp&h=100&w=300"
+    import ProjectButton from "../project-button/project-button.svelte";
   
   export const PAGE_COUNT = 10
   export let page = 0
@@ -16,11 +17,16 @@
 
 <SocialPostsGrid socialPosts={socialPosts.slice(page * PAGE_COUNT, (page * PAGE_COUNT) + PAGE_COUNT)}>
   <div class="w-[100%] lg:block flex justify-center">
-    <div class="post max-w-[300px] bg-white dark:bg-zinc-900 rounded-t-xl overflow-hidden lg:w-auto w-[100%] mb-5">
-      <div class="absolute z-1 bg-black h-[100px] rounded-t-xl overflow-hidden">
+    <div class="post max-w-[230px] lg:max-w-[300px] bg-white dark:bg-zinc-900 rounded-t-xl overflow-hidden lg:w-auto w-[100%] mb-5">
+      <div class="absolute z-1 bg-black w-[230px] lg:w-auto lg:h-[100px] rounded-t-xl overflow-hidden">
         <img src={stars} alt="banner" />
       </div>
-      <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4" />
+      <div class="flex">
+        <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4" />
+        <div class="relative top-12 lg:top-[10px] left-6 lg:left-24">
+          <ProjectButton fancy={false} raquo={false} index={0} link="/feed/feed.xml" download="feed.xml"><Emoji emoji="📰" /> rss</ProjectButton>
+        </div>
+      </div>
       <div class="p-4 pb-0 mb-[-10px] lg:block hidden">
         <strong>Emma {"<MarmadileManteater>"}</strong>
       </div>
