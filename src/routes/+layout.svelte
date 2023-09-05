@@ -4,6 +4,9 @@
   import Footer from '../components/footer/footer.svelte'
   import GodotSceneBackground from '../components/godot-scene-background/godot-scene-background.svelte'
   import Emoji from '../components/emoji/emoji.svelte'
+  import { navigating } from '$app/stores'
+  import Spinner from 'svelte-spinkit/src/Spinner.svelte'
+
   let loadGodot = false
   let enableGodot = () => {
     loadGodot = true
@@ -15,19 +18,28 @@
 {#if loadGodot}
   <GodotSceneBackground sceneUrl='/godot_background/index.html' />
 {/if}
-{#if !loadGodot}
-  <span class='text-white absolute top-2 right-5 z-10 hover:underline cursor-pointer hidden lg:inline' on:click={enableGodot} on:keydown={enableGodot}>Load <Emoji emoji='🤖' />Godot background scene in browser</span>
-{/if}
-<div class='flex flex-col min-h-screen' data-semi-transparent={loadGodot?'true':'false'} >
-  <div class='wrapper flex-1 flex flex-col relative' >
-    <Header loadedGodot={loadGodot} />
-    <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>
-      <section class='flex-1 flex flex-col relative' >
-        <slot />
-      </section>
-    </main>
-  </div>
-  <footer class='relative flex flex-col-reverse'>
-    <Footer loadedGodot={loadGodot} />
-  </footer>
-</div>
+
+  {#if !loadGodot}
+    <span class='text-white absolute top-2 right-5 z-10 hover:underline cursor-pointer hidden lg:inline' on:click={enableGodot} on:keydown={enableGodot}>Load <Emoji emoji='🤖' />Godot background scene in browser</span>
+  {/if}
+  <div class='flex flex-col min-h-screen' data-semi-transparent={loadGodot?'true':'false'} >
+    <div class='wrapper flex-1 flex flex-col relative' >
+      <Header loadedGodot={loadGodot} />
+      {#if $navigating}
+        <div class="flex justify-center pt-10" >
+          <Spinner name="cube-grid" color="#f87171" />
+        </div>
+      {:else}
+        <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>
+          <section class='flex-1 flex flex-col relative' >
+            <slot />
+          </section>
+        </main>
+      {/if}
+    </div>
+    </div>
+    {#if !$navigating}
+    <footer class='relative flex flex-col-reverse'>
+      <Footer loadedGodot={loadGodot} />
+    </footer>
+    {/if}
