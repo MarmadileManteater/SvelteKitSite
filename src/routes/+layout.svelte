@@ -27,7 +27,7 @@
       <Header loadedGodot={loadGodot} />
       {#if $navigating}
         <div class="flex justify-center pt-10" >
-          <Spinner name="cube-grid" color="#f87171" />
+          <Spinner name="cube-grid" color="var(--spinner-color)" />
         </div>
       {:else}
         <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>

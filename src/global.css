@@ -13,6 +13,7 @@
   --qwik-light-blue: #18b6f6;
   --qwik-light-purple: #ac7ff4;
   --qwik-dark-purple: #713fc2;
+  --spinner-color: #60a5fa;
 }
 
 [data-semi-transparent="true"] * {
@@ -113,6 +114,9 @@ body img, body span {
   body {
     background-color: black;
     color: white;
+  }
+  :root {
+    --spinner-color: #f87171;
   }
 }
 
