@@ -1,9 +1,9 @@
 <script lang="ts">
   export let link: string
   export let index: number = 0
-  export let raquo : bool = true
+  export let raquo : Boolean = true
   export let download: string = undefined
-  export let fancy: bool = true
+  export let fancy: Boolean = true
 </script>
 <a
   href={link}
