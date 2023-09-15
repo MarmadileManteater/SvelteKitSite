@@ -36,7 +36,6 @@
     "@marmadilemanteater/gh-static-site-lib": "https://github.com/MarmadileManteater/gh-static-site-lib.git",
     "highlight.js": "^11.7.0",
     "sqlite3": "^5.1.4",
-    "svelte-spinkit": "^1.0.3",
     "vite-imagetools": "^5.0.8"
   },
   "environment": "DEV",

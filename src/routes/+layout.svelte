@@ -4,9 +4,9 @@
   import Footer from '../components/footer/footer.svelte'
   import GodotSceneBackground from '../components/godot-scene-background/godot-scene-background.svelte'
   import Emoji from '../components/emoji/emoji.svelte'
+  import { csr } from './+layout'
   import { navigating } from '$app/stores'
-  import Spinner from 'svelte-spinkit/src/Spinner.svelte'
-
+  
   let loadGodot = false
   let enableGodot = () => {
     loadGodot = true
@@ -15,11 +15,11 @@
 <svelte:head>
   <link rel="icon" href="/favicon.ico" />
 </svelte:head>
-{#if loadGodot}
+{#if loadGodot && csr}
   <GodotSceneBackground sceneUrl='/godot_background/index.html' />
 {/if}
 
-  {#if !loadGodot}
+  {#if !loadGodot && csr}
     <span class='text-white absolute top-2 right-5 z-10 hover:underline cursor-pointer hidden lg:inline' on:click={enableGodot} on:keydown={enableGodot}>Load <Emoji emoji='🤖' />Godot background scene in browser</span>
   {/if}
   <div class='flex flex-col min-h-screen' data-semi-transparent={loadGodot?'true':'false'} >
@@ -27,7 +27,6 @@
       <Header loadedGodot={loadGodot} />
       {#if $navigating}
         <div class="flex justify-center pt-10" >
-          <Spinner name="cube-grid" color="var(--spinner-color)" />
         </div>
       {:else}
         <main class='max-w-full ml-auto mr-auto flex flex-col flex-1' style='width:1000px'>
@@ -37,9 +36,9 @@
         </main>
       {/if}
     </div>
-    </div>
-    {#if !$navigating}
+  </div>
+  {#if $navigating}
     <footer class='relative flex flex-col-reverse'>
       <Footer loadedGodot={loadGodot} />
     </footer>
-    {/if}
+  {/if}

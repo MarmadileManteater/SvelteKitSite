@@ -7,7 +7,6 @@
   // Without this, client side routing on this url param just doesn't work right
   // See https://github.com/sveltejs/kit/issues/1449#issuecomment-842433085
   $: data,  (()=>{
-    // and here you do the update (its like watch in vuejs)
     tagData = data.props.tagData
     pageCount = data.props.pageCount + 1
     pageNum = data.props.pageNum
