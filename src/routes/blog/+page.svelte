@@ -4,6 +4,7 @@
   import type { PageData } from "./$types"
   export let data : PageData
   import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
+    import { csr } from "../+layout";
   let tagData = data.props.tagData
   let pageCount = data.props.pageCount
   $: posts = data.props.blogPosts as IBlogPost[]
@@ -11,7 +12,7 @@
 <div class='project-list overflow-hidden' >
   <div class='md:rounded-t-xl'>
     <div class='rounded-t-xl lg:border border-solid border-black bg-white dark:bg-zinc-900 border-t'>
-      <a download='my-blog.xml' href='/blog/rss.xml' class='hover:underline p-2 block'><Emoji emoji='📰' /> rss</a>
+      <a download={csr ? "rss.xml":undefined} href='/blog/rss.xml' class='hover:underline p-2 block'><Emoji emoji='📰' /> rss</a>
       <UnifiedContentList {...{ tagData, content: posts, startIndex: 0  }} />
       {#if pageCount > 1}
         <a href='/blog/page/1' class='p-5 inline-block hover:underline'>Next Page &raquo;</a>

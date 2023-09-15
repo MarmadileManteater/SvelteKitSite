@@ -9,7 +9,7 @@
   import portrait from '../images/portrait.jpg?w=142&h=190'
   import demon2 from '../images/sign-2.png'
   import SocialPosts from "../components/social-posts/social-posts.svelte"
-
+    import { csr } from "./+layout";
   export let data : PageData
   
   let tagData = data.props.tagData
@@ -45,7 +45,7 @@
 </div>
 
 <div class="lg:rounded-xl lg:ml-6 lg:mr-6 lg:mt-5 p-5 mt-10 bg-zinc-100 dark:bg-zinc-800 font-bold flex justify-between">
-  <div><a href="/feed" class="hover:underline"><Emoji emoji="💬" /> my social feed &raquo;</a></div> <a href="/feed/feed.xml" class="hover:underline" download="socials.xml">rss <Emoji emoji="📰" /></a>
+  <div><a href="/feed" class="hover:underline"><Emoji emoji="💬" /> my social feed &raquo;</a></div> <a href="/feed/feed.xml" class="hover:underline" download={csr ? "socials.xml":undefined}>rss <Emoji emoji="📰" /></a>
 </div>
 
 <div class="lg:mt-5">
