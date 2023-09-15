@@ -14,30 +14,31 @@
   let pages = Math.ceil(socialPosts.length / PAGE_COUNT)
   let pageArray = Array.from(Array(pages).keys())
 </script>
-
-<SocialPostsGrid socialPosts={socialPosts.slice(page * PAGE_COUNT, (page * PAGE_COUNT) + PAGE_COUNT)}>
-  <div class="w-[100%] lg:block flex justify-center">
-    <div class="post max-w-[230px] lg:max-w-[300px] bg-white dark:bg-zinc-900 rounded-t-xl overflow-hidden lg:w-auto w-[100%] mb-5">
-      <div class="absolute z-1 bg-black w-[230px] lg:w-auto lg:h-[100px] rounded-t-xl overflow-hidden">
-        <img src={stars} alt="banner" />
-      </div>
-      <div class="flex">
-        <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4" />
-        <div class="relative top-12 lg:top-[10px] left-6 lg:left-24">
-          <ProjectButton fancy={false} raquo={false} index={0} link="/feed/feed.xml" download="feed.xml"><Emoji emoji="📰" /> rss</ProjectButton>
+<div class="lg:mt-3">
+  <SocialPostsGrid socialPosts={socialPosts.slice(page * PAGE_COUNT, (page * PAGE_COUNT) + PAGE_COUNT)}>
+    <div class="w-[100%] lg:block flex justify-center">
+      <div class="post max-w-[230px] lg:max-w-[300px] bg-white dark:bg-zinc-900 rounded-t-xl overflow-hidden lg:w-auto w-[100%] mb-5">
+        <div class="absolute z-1 bg-black w-[230px] lg:w-auto lg:h-[100px] rounded-t-xl overflow-hidden">
+          <img src={stars} alt="banner" />
+        </div>
+        <div class="flex">
+          <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4" />
+          <div class="relative top-12 lg:top-[10px] left-6 lg:left-24">
+            <ProjectButton fancy={false} raquo={false} index={0} link="/feed/feed.xml" download="feed.xml"><Emoji emoji="📰" /> rss</ProjectButton>
+          </div>
+        </div>
+        <div class="p-4 pb-0 mb-[-10px] lg:block hidden">
+          <strong>Emma {"<MarmadileManteater>"}</strong>
+        </div>
+        <div class="p-4">
+          <p><Emoji emoji="🔥" /> <em>( she / her / hers )</em> &nbsp; <Emoji emoji="🏳️‍⚧️" /></p>
+          <p>Jill of all trades <Emoji emoji="🧙‍♀️"/> &</p>
+          <p>a master of JavaScript <Emoji emoji="🙃"/></p>
         </div>
       </div>
-      <div class="p-4 pb-0 mb-[-10px] lg:block hidden">
-        <strong>Emma {"<MarmadileManteater>"}</strong>
-      </div>
-      <div class="p-4">
-        <p><Emoji emoji="🔥" /> <em>( she / her / hers )</em> &nbsp; <Emoji emoji="🏳️‍⚧️" /></p>
-        <p>Jill of all trades <Emoji emoji="🧙‍♀️"/> &</p>
-        <p>a master of JavaScript <Emoji emoji="🙃"/></p>
-      </div>
     </div>
-  </div>
-</SocialPostsGrid>
+  </SocialPostsGrid>
+</div>
 <div class="text-center lg:text-left">
   <div class="overflow-hidden p-4 mt-4 bg-white dark:bg-zinc-800 rounded inline-block">
     {#each pageArray as _, i}
