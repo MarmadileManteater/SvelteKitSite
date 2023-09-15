@@ -1,6 +1,5 @@
 <script lang="ts">
   export let link: string
-  export let target: string
   export let index: number = 0
   export let raquo : bool = true
   export let download: string = undefined
