@@ -37,7 +37,7 @@
       {/if}
     </div>
   </div>
-  {#if $navigating}
+  {#if !$navigating}
     <footer class='relative flex flex-col-reverse'>
       <Footer loadedGodot={loadGodot} />
     </footer>
