@@ -42,7 +42,7 @@ jobs:
           check_artifacts:  false
           search_artifacts: false
           skip_unpack: false
-          if_no_artifact_found: fail
+          if_no_artifact_found: pass
 
       - name: 🧶 Yarn 
         run: yarn
