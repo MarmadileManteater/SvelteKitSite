@@ -1,8 +1,8 @@
 <script lang="ts">
   export let loadedGodot: Boolean;
 </script>
-<header class="h-[150px] xs:h-[170px] sm:h-[260px] lg:h-[170px]">
-  <a href="/" class="justify-center flex sm:pt-2 pb-5">
+<header class="h-[150px] sm:h-[260px] lg:h-[170px] flex flex-col justify-center pb-5">
+  <a href="/" class="justify-center flex sm:pt-2">
     <div class="{loadedGodot?'xl:pt-0 lg:pt-10 sm:pt-0':''} lg:ml-[-40px]">
       <img src="/images/name-pink.gif" alt="emma" class="m-0 hidden dark:inline self-center" width="500" />
       <img src="/images/name-blue.gif" alt="emma" class="m-0 dark:hidden inline self-center" width="500" />
