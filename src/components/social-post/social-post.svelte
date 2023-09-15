@@ -25,7 +25,7 @@
 
 {#if post !== null}
   <div class="w-[100%]">
-    <div class="post flex flex-col lg:max-w-[300px] bg-white dark:bg-zinc-900 lg:rounded-t-xl overflow-hidden flex flex-col lg:w-auto w-[100%]">
+    <div class="post flex flex-col lg:max-w-[320px] bg-white dark:bg-zinc-900 lg:rounded-t-xl overflow-hidden flex flex-col lg:w-auto w-[100%]">
       <span class="text-sm pl-4 pr-4 pt-4">
         <a 
           class="hover:underline text-blue-600 dark:text-red-300"

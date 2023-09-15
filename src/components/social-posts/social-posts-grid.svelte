@@ -4,10 +4,10 @@
 
   export let socialPosts: ISocialPost[] = [];
 </script>
-<div class="lg:columns-3 flex-wrap justify-center ">
+<div class="lg:columns-3 lg:gap-x-[50px] flex-wrap justify-center ">
   <slot />
   {#each socialPosts as post, i}
-    <div class="social-post flex lg:basis-[300px] basis-full lg:w-[300px] lg:mb-5">
+    <div class="social-post flex lg:basis-[320px] basis-full lg:w-[320px] lg:mb-7">
       <SocialPost {post} />
     </div>
   {/each}
