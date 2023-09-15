@@ -20,10 +20,10 @@
       <div class="lg:w-[330px]">
         <div class="post max-w-[230px] lg:max-w-[320px] bg-white dark:bg-zinc-900 rounded-t-xl overflow-hidden lg:w-auto w-[100%] mb-7">
           <div class="absolute z-1 bg-black w-[230px] lg:w-auto lg:h-[100px] rounded-t-xl overflow-hidden">
-            <img src={stars} alt="banner" />
+            <img src={stars} alt="banner" class="lg:w-[320px] w-[223px] rounded-t-xl overflow-hidden" />
           </div>
           <div class="flex">
-            <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4" />
+            <img src={profilepic} alt="me" class="z-2 relative rounded-full pt-4 pl-4 w-[100px] h-[100px] lg:w-[116px] lg:h-[116px]" />
             <div class="relative top-12 lg:top-[10px] left-6 lg:left-[120px]">
               <ProjectButton fancy={false} raquo={false} index={0} link="/feed/feed.xml" download="feed.xml"><Emoji emoji="📰" /> rss</ProjectButton>
             </div>
