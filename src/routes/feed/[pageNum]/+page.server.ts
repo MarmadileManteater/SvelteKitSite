@@ -2,8 +2,8 @@ import { getSocialPosts } from '@marmadilemanteater/gh-static-site-lib/src/datas
 
 import { error } from '@sveltejs/kit'
 
-export async function load({params} : any) {
-  const pageNum = parseInt(params.pageNum)
+export async function load({params} : { params: { pageNum: number } }) {
+  const { pageNum } = params
   if (isNaN(pageNum))
     throw error(404, 'Not found')
   return {

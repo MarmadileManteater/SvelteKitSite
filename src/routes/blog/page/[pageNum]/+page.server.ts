@@ -8,14 +8,15 @@ import { error } from '@sveltejs/kit'
 
 const PAGE_SIZE = 5
 
+// @ts-expect-error: import issue with sveltekit; does not happen at build time or run time; just an IDE issue
 export const entries = (() => {
   return [...Array(Math.floor((devDataservice.getAllBlogPostIds().length / PAGE_SIZE) + 1)).keys()].map(pageNum => {
     return { pageNum: pageNum.toString() }
   })
 });
 
-export async function load({params} : {params: {pageNum: number}}) {
-  const pageNum = params.pageNum
+export async function load({ params } : { params: { pageNum: number } }) {
+  const { pageNum } = params
   if (isNaN(pageNum))
     throw error(404, 'Not found')
   let getAllBlogPostsSorted : () => Promise<IBlogPost[]> = async () => {
