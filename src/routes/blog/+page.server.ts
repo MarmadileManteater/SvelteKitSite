@@ -2,7 +2,7 @@
 import tagData from '../../../data/tags.json'
 import * as devDataservice from '@marmadilemanteater/gh-static-site-lib/src/dataservice/blog-posts'
 import * as prodDataservice from '../../dataservice/blog-posts'
-import { IBlogPost } from '@marmadilemanteater/gh-static-site-lib/src/models/blog'
+import type { IBlogPost } from '@marmadilemanteater/gh-static-site-lib/src/models/blog'
 const PAGE_SIZE = 5
 
 export async function load() {
