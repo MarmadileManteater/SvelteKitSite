@@ -1,10 +1,9 @@
 <script lang='ts'>
-  // import our logos through esmodule import bc they can be optimized through vite-imagetools that way
-  // @ts-ignore
+// @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import csharp from '../../images/csharp-logo.png?format=webp&w=40&h=40'
-  // @ts-ignore
+  // @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import js from '../../images/js-logo.png?format=webp&w=40&h=40'
-  // @ts-ignore
+  // @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import python from '../../images/python-logo.png?format=webp&w=40&h=48'
   import rust from '../../images/rust-logo-blk.svg'
 

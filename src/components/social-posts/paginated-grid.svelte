@@ -2,9 +2,9 @@
 <script lang='ts'>
   import SocialPostsGrid from '../../components/social-posts/social-posts-grid.svelte'
   import Emoji from '../../components/emoji/emoji.svelte'
-  // @ts-ignore
+  // @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import profilepic from '../../images/02152bebd8e818f982e39fb74e92ff4b.png?format=webp&w=100&h=100'
-  // @ts-ignore
+  // @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import stars from '../../images/preview3_22.png?format=webp&h=100&w=320'
   import ProjectButton from '../project-button/project-button.svelte'
   

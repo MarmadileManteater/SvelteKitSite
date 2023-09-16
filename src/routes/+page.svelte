@@ -5,7 +5,7 @@
   import { csr } from './+layout'
   import Emoji from '../components/emoji/emoji.svelte'
   import ProjectPreview from '../components/project-preview/project-preview.svelte'
-  // @ts-ignore
+  // @ts-expect-error: vite-imagetools causes error prone imports in IDE only
   import portrait from '../images/portrait.jpg?w=142&h=190'
   import demon2 from '../images/sign-2.png'
   import SocialPosts from '../components/social-posts/social-posts.svelte'
