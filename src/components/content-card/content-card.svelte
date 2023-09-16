@@ -6,10 +6,10 @@
   export let title : string
   export let titleLink : string = ''
   export let summary : string = ''
-  export let thumbnail : string|undefined = undefined
   export let tags : string[]
   export let tagData : ITag[]
   export let index : number
+  export let thumbnail : string|undefined = undefined
 </script>
 <div 
   class={`content-card md:pt-0 ${thumbnail?'pt-4':'pt-0'} block lg:flex ${index % 2 === 0?'bg-zinc-100':''} ${index % 2 === 0?'dark:bg-zinc-800':''} dark:text-white`}
