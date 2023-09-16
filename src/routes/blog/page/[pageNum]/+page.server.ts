@@ -1,9 +1,11 @@
 
+
+import type { IBlogPost } from '@marmadilemanteater/gh-static-site-lib/src/models/blog'
 import tagData from '../../../../../data/tags.json'
 import * as devDataservice from '@marmadilemanteater/gh-static-site-lib/src/dataservice/blog-posts'
 import * as prodDataservice from '../../../../dataservice/blog-posts'
-import type { IBlogPost } from "@marmadilemanteater/gh-static-site-lib/src/models/blog"
 import { error } from '@sveltejs/kit'
+
 const PAGE_SIZE = 5
 
 export const entries = (() => {
@@ -12,8 +14,8 @@ export const entries = (() => {
   })
 });
 
-export async function load({params} : any) {
-  const pageNum = parseInt(params.pageNum)
+export async function load({params} : {params: {pageNum: number}}) {
+  const pageNum = params.pageNum
   if (isNaN(pageNum))
     throw error(404, 'Not found')
   let getAllBlogPostsSorted : () => Promise<IBlogPost[]> = async () => {

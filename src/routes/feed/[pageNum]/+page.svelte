@@ -1,20 +1,23 @@
 
-<script lang="ts">
-  import PaginatedGrid from "../../../components/social-posts/paginated-grid.svelte"
-  import type { PageData } from "./$types"
+<script lang='ts'>
+  import type { PageData } from './$types'
+  import PaginatedGrid from '../../../components/social-posts/paginated-grid.svelte'
+  
   export let data : PageData
-  const PAGE_COUNT = 10;
+
   let { socialPosts, pageNum } = data.props
   $: data,  (()=>{
     socialPosts = data.props.socialPosts
     pageNum = data.props.pageNum
   })()
-  
-  let pages = Math.ceil(socialPosts.length / PAGE_COUNT)
 </script>
 
 <div >
-  <PaginatedGrid page={pageNum} PAGE_COUNT={10} {socialPosts} />
+  <PaginatedGrid
+    page={pageNum}
+    PAGE_COUNT={10}
+    {socialPosts}
+  />
 </div>
 
 <svelte:head>

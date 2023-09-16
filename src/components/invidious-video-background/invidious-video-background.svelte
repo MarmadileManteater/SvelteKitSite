@@ -1,10 +1,12 @@
-<script lang="ts">
-  import { onMount } from "svelte"
-  import Emoji from "../emoji/emoji.svelte"
+<script lang='ts'>
+  /* dunno if I will bring this back 🤷‍♀️ */
+  import { onMount } from 'svelte'
+  import Emoji from '../emoji/emoji.svelte'
 
   export let videoId: string
   export let server: string = 'https://invidious.sethforprivacy.com'
   export let itag: string = '22'
+
   $: videoUrl = `${server}/latest_version?id=${videoId}&itag=${itag}&local=true`
   $: invidiousUrl = `${server}/watch?v=${videoId}`
   let video : HTMLVideoElement
@@ -60,14 +62,40 @@
     }
   })
 </script>
-<div class='flex justify-center fixed top-0 left-0 w-screen h-screen' data-active={dataActive}>
-  <video bind:this={video} loop muted src={videoUrl} >
+<div
+  class='flex justify-center fixed top-0 left-0 w-screen h-screen'
+  data-active={dataActive}
+>
+  <video 
+    bind:this={video}
+    loop
+    muted
+    src={videoUrl}
+  >
     <slot/>
   </video>
 </div>
-<a rel='noreferrer' target='_blank' href={invidiousUrl} class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3' >Watch this video on <span class='icon link' ><Emoji emoji="🔗" /></span><span class='icon'><Emoji emoji="📺" /></span>Invidious</a>
+<a 
+  rel='noreferrer'
+  target='_blank'
+  href={invidiousUrl}
+  class='z-10 hover:underline text-blue text-blue-600 dark:text-red-300 dark:bg-zinc-900 bg-white p-3'
+>
+  Watch this video on 
+  <span
+    class='icon link'
+  >
+    <Emoji emoji='🔗' />
+  </span>
+  <span 
+    class='icon'
+  >
+    <Emoji emoji='📺' />
+  </span>
+  Invidious
+</a>
 <style>
-
+/* 🙈 don't look at this, I swear, I'm using tailwind in all the parts of the website I still use */
 a, video {
   position: fixed;
   opacity: 0;

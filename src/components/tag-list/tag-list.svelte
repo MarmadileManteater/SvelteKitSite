@@ -1,8 +1,10 @@
-<script lang="ts">
-  import Tag from '../tag/tag.svelte'
+<script lang='ts'>
   import type { ITag } from '@marmadilemanteater/gh-static-site-lib/src/models/project'
+  import Tag from '../tag/tag.svelte'
+
   export let tags : string[]
   export let tagData : ITag[]
+  
   // Get the data for a tag by name
   const getTagData = (givenName : string) => {
     return tagData.find(({name}) => { return name === givenName })

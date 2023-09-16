@@ -9,7 +9,7 @@ export const entries = (() => {
   return devDataservice.getAllBlogPostIds().map(postId => { return { postId: postId.toString() } })
 });
 
-export async function load(params : any) {
+export async function load(params : { params: { postId: string } }) {
   const postId = params.params.postId as string
   let getBlogPostById : (postId: string) => Promise<IBlogPost> = async (postId : string) => {
     return devDataservice.getBlogPostById(postId)

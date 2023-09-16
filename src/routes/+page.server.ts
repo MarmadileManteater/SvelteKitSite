@@ -22,11 +22,12 @@ export async function load() {
       return [topFeatured]
     return [topFeatured, lastUpdated]
   }
+  const start = 0//Math.floor(Math.random() * 27)
   return {
     props: {
       tagData,
       projectData: getProjects(),
-      postData: ((await getSocialPosts(0, 3)))
+      postData: ((await getSocialPosts(start + 0, start + 3)))
     }
   }
 }
