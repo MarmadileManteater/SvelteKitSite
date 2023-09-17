@@ -11,6 +11,8 @@
     switch (sortType) {
     case 'lastUpdate':
       return projects.map(p => p).sort((a, b) => { return new Date(b.lastUpdate).getTime() - new Date(a.lastUpdate).getTime() })
+    case 'stars':
+      return projects.map(p => p).sort((a, b) => { return b.ghStars - a.ghStars })
     case 'featured':
     default:
       return projects.map(p => p)

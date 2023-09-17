@@ -4,7 +4,7 @@
   import ProjectList from '../../../components/project-list/project-list.svelte'
   import SortByLinks from '../../../components/sort-by-links/sort-by-links.svelte'
   import linksData from '../../../data/sort-by-links.json'
-  
+
   export let data : PageData
 
   let tagData = data.props.tagData
@@ -14,14 +14,14 @@
   class='bg-white dark:bg-zinc-900 rounded-t-xl border-t lg:border border-solid border-black'
 >
   <ProjectList
-    sortType="lastUpdate"
+    sortType="stars"
     clientSideSorting={false}
     projects={projects}
     tagData={tagData}
   >
     <SortByLinks 
-    options={linksData}
-      selected={1}
+      options={linksData}
+      selected={2}
     />
   </ProjectList>
 </div>

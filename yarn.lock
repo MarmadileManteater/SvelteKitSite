@@ -242,7 +242,7 @@
 
 "@marmadilemanteater/gh-static-site-lib@https://github.com/MarmadileManteater/gh-static-site-lib.git":
   version "1.0.0"
-  resolved "https://github.com/MarmadileManteater/gh-static-site-lib.git#3571311eaf7dcd722b252ea64b6f24a65b887bfc"
+  resolved "https://github.com/MarmadileManteater/gh-static-site-lib.git#b6bd6ebbf6699d062b38415ea5c4d5c3552a4daa"
   dependencies:
     "@types/node" "^20.5.6"
     "@xmldom/xmldom" "^0.8.6"

@@ -2,6 +2,8 @@
   import type { IProject } from '@marmadilemanteater/gh-static-site-lib/src/models/project'
   import type { PageData } from './$types'
   import ProjectList from '../../components/project-list/project-list.svelte'
+  import SortByLinks from '../../components/sort-by-links/sort-by-links.svelte'
+  import linksData from '../../data/sort-by-links.json'
 
   export let data : PageData
 
@@ -16,13 +18,9 @@
     projects={projects}
     tagData={tagData}
   >
-    <span
-      class={'decoration-solid underline select-none p-4 inline-block'}
-    >Sort by featured</span>
-    <a
-      class={'cursor-pointer select-none p-4 inline-block'}
-      href='/projects/updated'
-    >Sort by last updated</a>
+    <SortByLinks 
+      options={linksData}
+    />
   </ProjectList>
 </div>
 <svelte:head>

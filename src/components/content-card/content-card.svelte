@@ -24,7 +24,7 @@
         <img
           src={`/thumbnails/${title.replace('?', '').replace('!', '')}.webp`}
           alt={title}
-          class='max-h-[153px] max-w-[182px] inline-block'
+          class='h-[140px] max-w-[182px] inline-block'
         />
       </a>
     </div> 
@@ -36,6 +36,7 @@
       {tags}
       {tagData}
     />
+    <slot name='inline-w-tags' />
     <a 
       href={titleLink} 
       class='hover:underline'

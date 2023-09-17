@@ -3,6 +3,7 @@
   import type { IBlogPost } from '@marmadilemanteater/gh-static-site-lib/src/models/blog'
   import ContentCard from '../content-card/content-card.svelte'
   import ProjectButton from '../project-button/project-button.svelte'
+  import Emoji from '../emoji/emoji.svelte'
 
   export let content : Array<IBlogPost|IProject>
   export let tagData : Array<ITag>
@@ -19,6 +20,18 @@
       tagData={tagData}
       index={startIndex + i}
     >
+      <span
+        slot='inline-w-tags'
+      >
+        {#if contentItem.ghStars > 0}
+          <a
+            href={`https://github.com/${contentItem.ghFullName}/stargazers`}
+            class='hover:underline pr-[10px] inline-block align-top hover:underline p-[7px] bg-zinc-200 dark:bg-zinc-700 dark:text-white rounded-xl mr-3 mb-2 mt-2 inline-block max-h-[110px]'
+          >
+            <Emoji emoji='🌠'/> {contentItem.ghStars}
+          </a>
+        {/if}
+      </span>
       {#each contentItem.buttons as button, k}
         <ProjectButton
           {...button}

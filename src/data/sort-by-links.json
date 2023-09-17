@@ -1,0 +1,17 @@
+[
+  {
+    "name": "featured",
+    "link": "/projects",
+    "emoji": "👁"
+  },
+  {
+    "name": "updated",
+    "link": "/projects/updated",
+    "emoji": "📅"
+  },
+  {
+    "name": "stars",
+    "link": "/projects/stars",
+    "emoji": "🌠"
+  }
+]
