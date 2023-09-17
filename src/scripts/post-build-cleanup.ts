@@ -1,6 +1,6 @@
 
 import { readFile, readdir, rm, rmdir, stat, writeFile } from 'fs/promises'
-
+import toDiffableHtml from 'diffable-html'
 /**
  * recursively looks through a directory and performs all given operations when it finds a file
  * @param directory the directory to recursively read through
@@ -36,9 +36,21 @@ await recursivelyPerformOperations(['./build'], [
   },
   async (fileName: string) => {
     if (fileName.endsWith('.html')) {
-      const file = (await readFile(fileName)).toString()
+      let file = (await readFile(fileName)).toString()
       // 🔍 look for emoji
       usedEmoji.push(...Array.from(file.matchAll(/emoji\/(mutantstd|twemoji)\/[^>]*?\.svg/g)).map(entry => entry[0]))
+      const pres = []
+      while (file.indexOf('<pre>') !== -1) {
+        const preContents = `<pre>${file.split('<pre>')[1].split('</pre>')[0]}</pre>`
+        file = file.replace(preContents, `<pre-${pres.length} />`)
+        pres.push(preContents)
+      }
+      let diffable = toDiffableHtml(file)
+      for (let i = 0; i < pres.length; i++) {
+        diffable = diffable.replace(new RegExp(`<pre-${i}>\\s+</pre-${i}>`, 'gm'), pres[i])
+      }
+      await writeFile(fileName, diffable)
+      console.log(`💄 Pretty printed ${fileName} `)
     }
   }
 ])
