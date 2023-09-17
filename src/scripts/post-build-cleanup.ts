@@ -49,8 +49,11 @@ await recursivelyPerformOperations(['./build'], [
       for (let i = 0; i < pres.length; i++) {
         diffable = diffable.replace(new RegExp(`<pre-${i}>\\s+</pre-${i}>`, 'gm'), pres[i])
       }
-      await writeFile(fileName, diffable)
-      console.log(`💄 Pretty printed ${fileName} `)
+      // don't prettify godot_background files
+      if (fileName.indexOf('godot_background/') === -1) {
+        await writeFile(fileName, diffable)
+        console.log(`💄 Pretty printed ${fileName} `)
+      }
     }
   }
 ])
