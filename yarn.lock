@@ -225,6 +225,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@liquify/prettify@^0.5.5-beta.1":
+  version "0.5.5-beta.1"
+  resolved "https://registry.yarnpkg.com/@liquify/prettify/-/prettify-0.5.5-beta.1.tgz#9842f47a92cd8d30cff9bf7bacec64d14530785c"
+  integrity sha512-VOJiXf6OEpXFQoF0W1hwGvolMURzWLurATnekVs8TcsrE0aSuCsdfWdk7bw8U/dSmsXe05PIq5VtmYMcecIIyw==
+
 "@mapbox/node-pre-gyp@^1.0.0":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz#417db42b7f5323d79e93b34a6d7a2a12c0df43fa"

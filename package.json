@@ -12,6 +12,7 @@
     "clean": "rimraf ./node_modules/.vite"
   },
   "devDependencies": {
+    "@liquify/prettify": "^0.5.5-beta.1",
     "@sveltejs/adapter-auto": "^1.0.0",
     "@sveltejs/adapter-node": "^1.1.0",
     "@sveltejs/adapter-static": "^2.0.3",

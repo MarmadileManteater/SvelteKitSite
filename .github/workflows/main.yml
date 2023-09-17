@@ -70,10 +70,8 @@ jobs:
       - name: 🏗️ Build
         run: |
           yarn build
+          npx ts-node ./src/scripts/post-build-cleanup.ts
           mv build static-adapter
-          mv static-adapter/not-found/index.html static-adapter/404.html
-          sed -i 's@href="\.\./@href="\/@g' static-adapter/404.html
-          rm -r static-adapter/not-found
 
       - name: 🧳 Package SQLite3 db
         run: |
