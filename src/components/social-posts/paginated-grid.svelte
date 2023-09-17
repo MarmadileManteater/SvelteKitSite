@@ -91,17 +91,23 @@
     </div>
   </SocialPostsGrid>
 </div>
-<div
+<div 
   class='text-center lg:text-left'
 >
   <div
-    class='overflow-hidden p-4 mt-4 lg:mt-7 bg-white dark:bg-zinc-800 rounded inline-block'
+    class='inline-block'
   >
-    {#each pageArray as _, i}
-      <a 
-        class={`hover:bg-zinc-200 dark:hover:bg-zinc-900 p-4 pt-5 pb-5 ${i == page ? 'font-bold underline dark:bg-zinc-900 bg-zinc-200 inline': ''}`}
-        href={`/feed/${i}`}
-      >{i + 1}</a>
-    {/each}
+    <div
+      class='overflow-hidden pl-4 pr-4 mt-4 lg:mt-7 bg-white dark:bg-zinc-800 rounded flex'
+    >
+      {#each pageArray as _, i}
+        <a 
+          class={`inline-block hover:bg-zinc-200 dark:hover:bg-zinc-900 p-4 pt-5 pb-5 ${i == page ? 'font-bold underline dark:bg-zinc-900 bg-zinc-200 inline': ''}`}
+          href={`/feed/${i}`}
+        >
+          {i + 1}
+        </a>
+      {/each}
+    </div>
   </div>
 </div>
