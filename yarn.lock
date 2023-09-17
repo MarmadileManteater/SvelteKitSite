@@ -225,11 +225,6 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@liquify/prettify@^0.5.5-beta.1":
-  version "0.5.5-beta.1"
-  resolved "https://registry.yarnpkg.com/@liquify/prettify/-/prettify-0.5.5-beta.1.tgz#9842f47a92cd8d30cff9bf7bacec64d14530785c"
-  integrity sha512-VOJiXf6OEpXFQoF0W1hwGvolMURzWLurATnekVs8TcsrE0aSuCsdfWdk7bw8U/dSmsXe05PIq5VtmYMcecIIyw==
-
 "@mapbox/node-pre-gyp@^1.0.0":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz#417db42b7f5323d79e93b34a6d7a2a12c0df43fa"
@@ -1462,6 +1457,11 @@ highlight.js@^11.7.0:
   version "11.8.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
   integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
+
+htmltidy@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/htmltidy/-/htmltidy-0.0.6.tgz#1074e2b8ef1ac5aad1e16c3cb1478cf229989d68"
+  integrity sha512-urTa5/BV9ailVv4nfS0canfojF8BpgWXRzDPHzSm6EsufZkwhrj9eW46tGVX6JoWqlQzRNEjiuEmA5EX7KQceA==
 
 http-cache-semantics@^4.1.0:
   version "4.1.1"
