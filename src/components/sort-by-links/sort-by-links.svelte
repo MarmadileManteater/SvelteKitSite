@@ -10,7 +10,9 @@
   >
     Sort by:
   </span>
-  <span class='p-4 pl-0 sm:pt-4 flex'>
+  <span
+    class='p-4 pl-0 sm:pt-4 flex'
+  >
     {#each options as option, i}
       {#if i != selected}
         <a
@@ -23,7 +25,11 @@
           {option.name}
         </a>
         {#if i !== options.length - 1}
-        <span class='text-zinc-400 dark:text-zinc-500'>|</span>
+        <span 
+          class='text-zinc-400 dark:text-zinc-500'
+        >
+          |
+        </span>
         {/if}
       {/if}
       {#if i == selected}
@@ -36,7 +42,11 @@
           {option.name}
         </span>
         {#if i !== options.length - 1}
-        <span class='text-zinc-400 dark:text-zinc-500'>|</span>
+        <span
+          class='text-zinc-400 dark:text-zinc-500'
+        >
+          |
+        </span>
         {/if}
       {/if}
     {/each}
