@@ -39,8 +39,8 @@ await recursivelyPerformOperations(['./build'], [
       const file = (await readFile(fileName)).toString()
       // 🔍 look for emoji
       usedEmoji.push(...Array.from(file.matchAll(/emoji\/(mutantstd|twemoji)\/[^>]*?\.svg/g)).map(entry => entry[0]))
-      // 💄 pretty print all my HTML
-      await writeFile(fileName, (await prettify.format(file
+      // 💄 pretty print all my HTML (doesn't work in CI???)
+      /* await writeFile(fileName, (await prettify.format(file
                                                         .replace(/<!--[^>-]*?-->/g, '\r\n')
                                                         .replace(/<!-- [a-zA-Z0-9-_]*? -->/g, '\r\n')
                                                         .replace(/> </g, '>\r\n<')
@@ -51,8 +51,8 @@ await recursivelyPerformOperations(['./build'], [
                                                             attributeSort: true,
                                                             forceLeadAttribute: true
                                                           } 
-                                                        })).replace(/^\s*\n/gm, ''))
-      console.log(`💄 Pretty printed ${fileName}`)
+                                                        })).replace(/^\s*\n/gm, ''))*/
+      // console.log(`💄 Pretty printed ${fileName}`)
     }
   }
 ])
