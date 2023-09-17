@@ -72,6 +72,8 @@ jobs:
           yarn build
           npx ts-node ./src/scripts/post-build-cleanup.ts
           mv build static-adapter
+          rm -r ./static/emoji
+          cp -r ./static-adapter/emoji ./static
 
       - name: 🧳 Package SQLite3 db
         run: |
