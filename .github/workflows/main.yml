@@ -63,7 +63,7 @@ jobs:
           cp -r data/public static
           cp -r social/media static/media
 
-      - name: 🏞 Set the environment
+      - name: 🏞 Set the URL for the static adapter
         run: |
           npx ts-node ./src/scripts/set-website-url.ts https://marmadilemanteater.dev
 
@@ -91,10 +91,10 @@ jobs:
         run: |
           cp ./sqllite3.db ./build
 
-      - name: 🚚 Move node_modules into build files
-        run: |
-          cp -r node_modules ./build
-          cp package.json ./build
+      #- name: 🚚 Move node_modules into build files
+      #  run: |
+      #    cp -r node_modules ./build
+      #    cp package.json ./build
         
       - name: 🤐 Zip up build directory for 🏎faster uploads
         uses: montudor/action-zip@v1
