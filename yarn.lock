@@ -1458,11 +1458,6 @@ highlight.js@^11.7.0:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
   integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
 
-htmltidy@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/htmltidy/-/htmltidy-0.0.6.tgz#1074e2b8ef1ac5aad1e16c3cb1478cf229989d68"
-  integrity sha512-urTa5/BV9ailVv4nfS0canfojF8BpgWXRzDPHzSm6EsufZkwhrj9eW46tGVX6JoWqlQzRNEjiuEmA5EX7KQceA==
-
 http-cache-semantics@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.1.tgz#abe02fcb2985460bf0323be664436ec3476a6d5a"

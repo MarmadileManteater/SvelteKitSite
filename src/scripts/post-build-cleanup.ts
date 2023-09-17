@@ -1,7 +1,6 @@
 
 import { readFile, readdir, rm, rmdir, stat, writeFile } from 'fs/promises'
-import { tidy } from 'htmltidy'
-import { promisify } from 'util'
+
 /**
  * recursively looks through a directory and performs all given operations when it finds a file
  * @param directory the directory to recursively read through
@@ -40,14 +39,6 @@ await recursivelyPerformOperations(['./build'], [
       const file = (await readFile(fileName)).toString()
       // 🔍 look for emoji
       usedEmoji.push(...Array.from(file.matchAll(/emoji\/(mutantstd|twemoji)\/[^>]*?\.svg/g)).map(entry => entry[0]))
-      // 💄 pretty print all my HTML (doesn't work in CI???)
-      await writeFile(fileName, await promisify(tidy)(file, {
-        indent: true,
-        doctype: 'html5',
-        hideComments: true,
-        wrap: 500
-      }))
-      console.log(`💄 Pretty printed ${fileName}`)
     }
   }
 ])
