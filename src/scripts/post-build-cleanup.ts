@@ -80,7 +80,7 @@ await recursivelyPerformOperations(['./build/thumbnails'], [
 
 // rename not found page
 const notFoundHTML = await readFile('./build/not-found/index.html')
-await writeFile('./build/404.html', notFoundHTML.toString().replaceAll(/href="\.\.\//g, 'href="'))
+await writeFile('./build/404.html', notFoundHTML.toString().replaceAll(/href="\.\.\//g, 'href="/'))
 await rm('./build/not-found/index.html')
 await rmdir('./build/not-found')
 console.log('🚛 Moved not-found/index.html to 404.html')
