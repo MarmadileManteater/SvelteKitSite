@@ -98,7 +98,7 @@
     class='inline-block'
   >
     <div
-      class='overflow-hidden pl-4 pr-4 mt-4 lg:mt-7 bg-white dark:bg-zinc-800 rounded flex'
+      class='overflow-hidden pl-4 pr-4 mt-4 mb-4 lg:mt-7 bg-white dark:bg-zinc-800 rounded flex'
     >
       {#each pageArray as _, i}
         <a 
