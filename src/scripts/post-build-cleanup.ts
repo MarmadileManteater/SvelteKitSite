@@ -45,6 +45,7 @@ await recursivelyPerformOperations(['./build'], [
         file = file.replace(preContents, `<pre-${pres.length} />`)
         pres.push(preContents)
       }
+      /*
       let diffable = toDiffableHtml(file)
       for (let i = 0; i < pres.length; i++) {
         diffable = diffable.replace(new RegExp(`<pre-${i}>\\s+</pre-${i}>`, 'gm'), pres[i])
@@ -54,6 +55,7 @@ await recursivelyPerformOperations(['./build'], [
         await writeFile(fileName, diffable)
         console.log(`💄 Pretty printed ${fileName} `)
       }
+      */
     }
   }
 ])

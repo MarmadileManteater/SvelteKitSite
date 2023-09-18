@@ -15,8 +15,7 @@
         class='hover:underline dark:text-red-300 text-blue-300'
         rel='noreferrer'
       >
-        Mutant Standard
-      </a>
+        Mutant Standard</a>
        emoji by 
        <a 
         href='https://dzuk.zone/'
@@ -24,17 +23,15 @@
         target='_blank'
         rel='noreferrer'
       >
-        Dzuk
-      </a>
-      , are licensed under 
+        Dzuk</a>,
+      are licensed under 
       <a 
         href='https://creativecommons.org/licenses/by-nc-sa/4.0/'
         target='_blank'
         class='hover:underline dark:text-red-300 text-blue-300'
         rel='noreferrer'
       >
-        CC BY-NC-SA 4.0 International
-      </a>.
+        CC BY-NC-SA 4.0 International</a>.
     </p>
     <p>
       <a 
@@ -43,8 +40,7 @@
         rel='noreferrer'
         class='hover:underline dark:text-red-300 text-blue-300'
       >
-        Twemoji
-      </a> 
+        Twemoji</a> 
       emoji by 
       <a 
         href='https://github.com/twitter'
@@ -52,8 +48,7 @@
         rel='noreferrer'
         class='hover:underline dark:text-red-300 text-blue-300'
       >
-        Twitter, Inc and other contributors
-      </a>
+        Twitter, Inc and other contributors</a>
       are licensed under 
       <a 
         href='https://creativecommons.org/licenses/by/4.0/'
@@ -61,8 +56,7 @@
         rel='noreferrer'
         class='hover:underline dark:text-red-300 text-blue-300'
       >
-        CC BY 4.0 International
-      </a>.
+        CC BY 4.0 International</a>.
     </p>
     {#if loadedGodot}
       <p>
@@ -81,8 +75,7 @@
           rel='noreferrer'
           class='hover:underline dark:text-red-300 text-blue-300'
         >
-          the MIT license
-        </a>.
+          the MIT license</a>.
       </p>
     {/if}
   </div>
@@ -98,8 +91,7 @@
           rel='noreferrer'
           class='hover:underline dark:text-red-300 text-blue-300'
         >
-          SvelteKit
-        </a> 
+          SvelteKit</a> 
       </span>
     </div>
     <div
